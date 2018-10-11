@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐  12345git stash #把当前的所有修改暂存下来，此时status会恢复到最初干净的状态git pu">
+<meta name="description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 操作小结">
 <meta property="og:url" content="https://laiping816.github.io/2018/06/24/git操作小结/index.html">
 <meta property="og:site_name" content="Lp的博客">
-<meta property="og:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐  12345git stash #把当前的所有修改暂存下来，此时status会恢复到最初干净的状态git pu">
+<meta property="og:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-11T08:12:26.805Z">
+<meta property="og:updated_time" content="2018-10-11T14:00:03.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 操作小结">
-<meta name="twitter:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐  12345git stash #把当前的所有修改暂存下来，此时status会恢复到最初干净的状态git pu">
+<meta name="twitter:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
 
 
 
@@ -160,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">此站仅作学习之用</p>
+        <p class="site-subtitle">厚积薄发</p>
       
   </div>
 
@@ -297,10 +298,45 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-11T22:00:03+08:00">
+                2018-10-11
+              </time>
             
           </span>
 
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Learning-notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -334,7 +370,7 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较</span></span><br><span class="line">git pull  <span class="comment">#若无冲突，可直接merge</span></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>无法先pull（即存在冲突）方案一：推荐</li>
+<li>无法先pull（即存在冲突）方案一：推荐<a id="more"></a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment">#把当前的所有修改暂存下来，此时status会恢复到最初干净的状态</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop <span class="comment">#把暂存区的修改恢复出来，并且冲突的地方会标记出来，待手动修改</span></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>附加：</p>
@@ -343,7 +379,6 @@
 <li>无法先pull（即存在冲突）方案二（缺点：需要提交2次，有时并不想提交）</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m <span class="string">"messgae1"</span></span><br><span class="line">git pull <span class="comment">#此时冲突处会标记出来，手动解决冲突</span></span><br><span class="line">git commit -a -m <span class="string">"messgae2"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --all <span class="comment">#查看所有分支情况，包括本地和远端</span></span><br></pre></td></tr></table></figure>
 <p>无论在主分支，或者其他分支上修改了东西，但是未commit，切换分支时，会<strong>仍然存在</strong>。</p>
 <p>因此，在切换分支的时候，最好commit再切换，或者git stash下来。</p>
@@ -382,6 +417,29 @@
 
     
 
+
+    
+      <div>
+        <hr />
+<center>本&nbsp;&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;结&nbsp;&nbsp;&nbsp;束&nbsp;&nbsp;&nbsp;啦&nbsp;&nbsp;&nbsp;<i class="fa fa-edit"></i>&nbsp;&nbsp;&nbsp;感&nbsp;&nbsp;&nbsp;谢&nbsp;&nbsp;&nbsp;您&nbsp;&nbsp;&nbsp;的&nbsp;&nbsp;&nbsp;阅&nbsp;&nbsp;&nbsp;读</center>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Lai Ping
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://laiping816.github.io/2018/06/24/git操作小结/" title="Git 操作小结">https://laiping816.github.io/2018/06/24/git操作小结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -413,9 +471,13 @@
       </div>
     
 
-    
-
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
       
 
       
@@ -432,8 +494,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/11/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/25/CSS — 层叠样式表/" rel="prev" title="CSS — 层叠样式表">
+                CSS — 层叠样式表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +584,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -567,12 +647,12 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-block">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-link"></i>
-                友情链接
+                Links
               </div>
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://www.baidu.com/" title="Baidu" target="_blank">Baidu</a>
+                    <a href="http://www.baidu.com/" title="要位置请联系我" target="_blank">要位置请联系我</a>
                   </li>
                 
               </ul>
