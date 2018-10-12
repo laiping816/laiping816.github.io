@@ -1268,7 +1268,7 @@ pre .javascript .function {
   opacity: 0;
 }
 .posts-expand {
-  padding-top: 40px;
+  padding-top: 0px;
 }
 @media (max-width: 767px) {
   .posts-expand {
@@ -1609,7 +1609,7 @@ pre .javascript .function {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 80px auto 60px;
+  margin: -11px auto 60px;
   width: 8%;
   height: 1px;
   background: #ccc;
@@ -1882,6 +1882,13 @@ pre .javascript .function {
   font-size: 13px;
   color: #999;
 }
+.post {
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 14px #cacbcb;
+  -moz-box-shadow: 0 0 14px #cacbcc;
+  background: #fff;
+}
 .site-state {
   overflow: hidden;
   line-height: 1.4;
@@ -1950,7 +1957,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #09d7e4;
+  background: #ff9071;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2794,12 +2801,8 @@ pre .javascript .function {
 .content-wrap {
   float: right;
   box-sizing: border-box;
-  padding: 40px;
   width: 700px;
-  background: #fff;
   min-height: 700px;
-  box-shadow: 0 0px 10px 3px rgba(0,0,0,0.1);
-  border-radius: initial;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
