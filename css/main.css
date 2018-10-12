@@ -1950,7 +1950,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d0bda4;
+  background: #09d7e4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2798,7 +2798,7 @@ pre .javascript .function {
   width: 700px;
   background: #fff;
   min-height: 700px;
-  box-shadow: initial;
+  box-shadow: 0 0px 10px 3px rgba(0,0,0,0.1);
   border-radius: initial;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -3117,11 +3117,13 @@ pre .javascript .function {
   border: 2px dashed #fff;
   animation: cycle 2s 0.5s forwards;
   transition: border-radius 2s;
+  border-radius: 60%;
+  transition: 2.5s all;
 }
-body {
-  background-image: url("/images/bg2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-size: cover;
+.site-author-image:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
