@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lp&#39;s Blog">
 <meta property="og:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-12T07:59:27.783Z">
+<meta property="og:updated_time" content="2018-10-30T07:53:33.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 操作小结">
 <meta name="twitter:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-12T15:59:27+08:00">
-                2018-10-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-30T15:53:33+08:00">
+                2018-10-30
               </time>
             
           </span>
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Learning-notes</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -412,7 +412,7 @@
 <li>无法先pull（即存在冲突）方案一：推荐</li>
 </ol>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment">#把当前的所有修改暂存下来，此时status会恢复到最初干净的状态</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop <span class="comment">#把暂存区的修改恢复出来，并且冲突的地方会标记出来，待手动修改</span></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment">#把当前的所有修改暂存下来，此时status会恢复到最初干净的状态</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">git stash pop <span class="comment">#把暂存区的修改恢复出来，并且冲突的地方会标记出来，待手动修改</span></span><br><span class="line">git stash apply stash@&#123;0&#125; <span class="comment">#上面这样恢复若无冲突和自动删除stash记录，而这个不会</span></span><br><span class="line"></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>附加：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git stash list <span class="comment">#查看暂存的内容列表(包含在哪条分支上的暂存)</span></span><br><span class="line"><span class="comment">#如果使用git stash pop 不加名，则恢复最近一条记录，哪怕是mybranch上的内容也会被恢复到master。(若无冲突，会吧list中记录删除，若冲突则需冲动删除)</span></span><br><span class="line">git stash clear <span class="comment">#清空所有内容</span></span><br><span class="line">git stash drop stash@&#123;0&#125;<span class="comment">#删除第一个队列，不加默认删除编号为0</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
@@ -617,7 +617,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
