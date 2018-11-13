@@ -88,7 +88,7 @@
 <meta property="og:description" content="Object、Scanner、String相关类、Arrays类、包装类、正则表达式、常用类">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image-link.nos-eastchina1.126.net/java_02">
-<meta property="og:updated_time" content="2018-11-05T08:11:11.745Z">
+<meta property="og:updated_time" content="2018-11-13T07:26:10.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java学习(2)">
 <meta name="twitter:description" content="Object、Scanner、String相关类、Arrays类、包装类、正则表达式、常用类">
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-05T16:11:11+08:00">
-                2018-11-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-13T15:26:10+08:00">
+                2018-11-13
               </time>
             
           </span>
@@ -540,6 +540,7 @@
 <pre><code>在第一次创建`Integer`对象时，自动装箱会用到`IntegerCache`这个内部类，加载该内部类`.class`文件，同时该类内部有`static`代码块，执行后生成`IntegerCache.cache[0-255]`缓存数组并存放于常量池。在jdk1.6后，最大值映射到 `java.lang.Integer.IntegerCache.high`，可以使用 JVM 的启动参数设置最大值。这使我们可以根据应用程序的实际情况灵活地调整来提高性能。
 </code></pre><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><ul>
 <li>描述或匹配一系列符合规则字符串，用来检测注册账号、邮箱，手机号码等。</li>
+<li>调用字符串类方法<code>public boolean matches(String regex)</code></li>
 </ul>
 <h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><ul>
 <li><p>简单类</p>
@@ -564,7 +565,7 @@
 </li>
 </ul>
 <h3 id="数量词"><a href="#数量词" class="headerlink" title="数量词"></a>数量词</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X?			<span class="comment">//X一次或一次也没有   </span></span><br><span class="line">X*			<span class="comment">//零次或多次</span></span><br><span class="line">X+			<span class="comment">//一次或多次</span></span><br><span class="line">X&#123;n&#125;		<span class="comment">//恰好n次</span></span><br><span class="line">X&#123;n,&#125;		<span class="comment">//至少n次	</span></span><br><span class="line">X&#123;n,m&#125;		<span class="comment">//至少n次，但不超过m次</span></span><br></pre></td></tr></table></figure>
-<h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"xyc.你我他.@%$"</span></span><br><span class="line">String[] arr = s.split(<span class="string">"\\."</span>) </span><br><span class="line"><span class="comment">//arr = ["xyc, "你我他", "@%$"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"xyc.你我他.@%$"</span>;   <span class="comment">//xyc..你我他..@%$</span></span><br><span class="line">String[] arr = s.split(<span class="string">"\\."</span>);  </span><br><span class="line"><span class="comment">//arr = ["xyc, "你我他", "@%$"]   结果会有5个,["xyc, "", "你我他", "", "@%$"]</span></span><br></pre></td></tr></table></figure>
 <h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">replaceAll</span><span class="params">(String regex, String replacement)</span></span>;</span><br></pre></td></tr></table></figure>
 <h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p><code>&quot;(.)\\1(.)\\2&quot;</code>        <code>()</code>表示一组，<code>\\1</code>表示第一组又出现1次，<code>\\2</code>表示第二组又出现1次</p>
 <p>练习：</p>
@@ -829,7 +830,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -851,7 +852,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
