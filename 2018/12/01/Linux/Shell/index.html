@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="shell," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="bash、变量、shell编程">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell编程">
+<meta property="og:url" content="https://laiping816.github.io/2018/12/01/Linux/Shell/index.html">
+<meta property="og:site_name" content="Lp&#39;s Blog">
+<meta property="og:description" content="bash、变量、shell编程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://image-link.nos-eastchina1.126.net/shell">
+<meta property="og:updated_time" content="2019-03-25T17:47:24.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell编程">
+<meta name="twitter:description" content="bash、变量、shell编程">
+<meta name="twitter:image" content="https://image-link.nos-eastchina1.126.net/shell">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://laiping816.github.io/2018/12/01/Linux/Shell/"/>
+
+
+
+
+
+  <title>shell编程 | Lp's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Charity begins at home</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+     
+    <main id="main" class="main">  
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2018/12/01/Linux/Shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L.. P...">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lp's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">shell编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T21:20:00+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T01:47:24+08:00">
+                2019-03-26
+              </time>
+            
+          </span>
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>bash、变量、shell编程</p></blockquote>
+
+<p><img src="https://image-link.nos-eastchina1.126.net/shell"></p>
+<a id="more"></a>
+<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><p>命令行解释器，提供给user一个向Linux内核发送请求以便执行对应任务的工具</p>
+<ul>
+<li><p>分类</p>
+<p>Bourne Shell：sh、ksh、<strong>Bash</strong>、psh、zsh</p>
+<p>C Shell（BSD版的Unix中）：csh、tcsh</p>
+</li>
+<li><p>执行</p>
+<ul>
+<li><p>直接运行</p>
+<p>chmod  755  hello.sh</p>
+<p>./hello.sh</p>
+</li>
+<li><p>Bash调用执行</p>
+<p>bash  hello.sh </p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash     (若调用其他语言，这行不要省略)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注释</span></span><br><span class="line">echo -e "\e[1;31m text \e[0m"          </span><br><span class="line"><span class="meta">#</span><span class="bash">31m=红色     32m=绿色    33m=黄色</span></span><br></pre></td></tr></table></figure>
+<h2 id="bash中基本功能"><a href="#bash中基本功能" class="headerlink" title="bash中基本功能"></a>bash中基本功能</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1.别名</span></span><br><span class="line">alias ls='ls --color=auto' </span><br><span class="line"><span class="meta">#</span><span class="bash">设定别名，临时生效  </span></span><br><span class="line"><span class="meta">#</span><span class="bash">永久，写入环境变量配置文件 ~/.bashrc   再souce重新加载配置文件生效，不然要重启</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2.历史</span></span><br><span class="line">history -c:清空历史命令</span><br><span class="line">		-w:把缓存中历史命令写入~/.bash_history</span><br><span class="line">		</span><br><span class="line"><span class="meta">#</span><span class="bash">3.输出重定向</span></span><br><span class="line">命令 &amp;&gt;文件  #覆盖方式全都写到文件中	</span><br><span class="line">命令 &gt;&gt; 文件1  2&gt;&gt;文件2 #正确追加到文件1，错误输出追加到文件2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">4.多命令执行</span></span><br><span class="line">date ; 处理 ; date #可以用来看处理时间  可以配合&amp;&amp; ||</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">5.通配符</span></span><br><span class="line">*  ?  [0-9]   [^0-9]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">6.Bash中其他特殊符号</span></span><br><span class="line">'' #单引号中所有特殊字符都没特殊含义</span><br><span class="line">"" #双引号中，$调用变量   `引用命令  \转义符</span><br><span class="line"><span class="meta">$</span><span class="bash">() &lt;=&gt; `` 等价于反引号执行系统命令   $取变量值</span></span><br></pre></td></tr></table></figure>
+<h2 id="Bash变量与变量分类"><a href="#Bash变量与变量分类" class="headerlink" title="Bash变量与变量分类"></a>Bash变量与变量分类</h2><p>bash中变量存的所有类型（string,number,date等）都是字符串类型</p>
+<h3 id="用户自定义变量"><a href="#用户自定义变量" class="headerlink" title="用户自定义变量"></a>用户自定义变量</h3><ul>
+<li>只在当前shell有效</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name="lai ping"   #  =不能有空格，否则当命令解析错误</span><br><span class="line">name="$name"456   #  变量叠加  name=lai ping456</span><br><span class="line">set				  #  查询系统下所有变量  -u  可以用提示，调用未定义的变量，默认无</span><br><span class="line">unset name    	  #	 删除变量</span><br></pre></td></tr></table></figure>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>全局变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export x=1  #设置环境变量</span><br><span class="line">set #查看所有变量(当前shell局部和全局)</span><br><span class="line">env #查看环境变量</span><br></pre></td></tr></table></figure>
+<p>常用环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SHELL:当前</span><br><span class="line">TERM:终端环境</span><br><span class="line">PATH:PATH环境变量  系统查找命令的路径</span><br><span class="line"></span><br><span class="line">PATH="$PATH":/root/sh  #增加PATH变量的值</span><br></pre></td></tr></table></figure>
+<h3 id="位置参数变量"><a href="#位置参数变量" class="headerlink" title="位置参数变量"></a>位置参数变量</h3><ul>
+<li>$n：n为数字，0代表命令本身，1-9代表第1到9个参数，10以上参数需要 {10}</li>
+<li>$*：命令行所有参数，把所有参数看做一个整体</li>
+<li>$@：所有参数，把每个参数区分对待，for循环体现区别</li>
+<li>$#：所有参数个数</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">num1=$1</span><br><span class="line">num2=$2</span><br><span class="line">sum=$(($num1+$num2))</span><br><span class="line">echo $sum</span><br><span class="line"></span><br><span class="line">./sum.sh 12 2434</span><br></pre></td></tr></table></figure>
+<h3 id="预定义变量"><a href="#预定义变量" class="headerlink" title="预定义变量"></a>预定义变量</h3><ul>
+<li>$?：最后一次执行的命令的返回状态。若为0，证明上个命令正确执行</li>
+<li>$$：当前进程的进程号（PID）</li>
+<li>$!：后台运行最后一个进程的进程号</li>
+</ul>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>declare [+/-] 选项  变量名   </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">declare -i c  #定义c为整型变量 </span><br><span class="line">declare -x MYPATH #等价于 export MYPATH</span><br></pre></td></tr></table></figure>
+<p>$((运算式))</p>
+<p>变量测试在脚本优化时用</p>
+<h2 id="环境变量配置文件"><a href="#环境变量配置文件" class="headerlink" title="环境变量配置文件"></a>环境变量配置文件</h2><ul>
+<li><p>简介</p>
+<ul>
+<li>主要是定义对系统的操作环境生效的系统默认环境变量，如PATH、HISTSIZE、PS1、HOSTNAME等默认环境变量。</li>
+</ul>
+</li>
+<li><p>source 配置文件 或 . 配置文件</p>
+<ul>
+<li>配置文件生效，不用重启</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/profile</span><br><span class="line">/etc/profile.d/*.sh</span><br><span class="line">~/.bash_profile</span><br><span class="line">~/.bashrc  </span><br><span class="line">/etc/bashrc</span><br></pre></td></tr></table></figure>
+<ul>
+<li>登录调用顺序</li>
+</ul>
+<p>/etc/profile →  ~/.bash_profile →  ~/.bashrc →  /etc/bashrc  →  命令提示符</p>
+<p>​           ↓                                    (区分no login 即切换子shell)</p>
+<p>/etc/profile.d/*.sh</p>
+<p>​           ↓</p>
+<p>/etc/profile.d/lang.sh  →   /etc/sysc config/i18n（语言）</p>
+<p>(区分no login就是切换子shell) </p>
+<ul>
+<li>其他配置文件<ul>
+<li>~/.bash_logout：  注销生效</li>
+<li>~/.bash_history：  当前的会在history,注销才写入</li>
+<li>/etc/issue： 本地终端登录信息 issue.net 远程登录</li>
+</ul>
+</li>
+</ul>
+<h2 id="Shell-编程"><a href="#Shell-编程" class="headerlink" title="Shell 编程"></a>Shell 编程</h2><h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><ul>
+<li><p>把本来输出到屏幕到重定向到文件</p>
+<ul>
+<li>/dev/stdout  1 正确  </li>
+<li>/dev/stderr   2 错误</li>
+</ul>
+</li>
+<li><p>用来管理错误日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">错误命令  2&gt;&gt;err.log</span><br><span class="line"></span><br><span class="line">命令 &gt;&gt; 文件 2&gt;1&amp; <span class="comment">#追加方式，正确错误都保存到文件</span></span><br><span class="line">命令 &amp;&gt;&gt;文件   <span class="comment">#同上功能</span></span><br><span class="line">    &amp;&gt;/dev/null <span class="comment">#丢弃</span></span><br><span class="line">命令 &gt;&gt;文件1 2&gt;&gt;文件2 <span class="comment">#正确1 错误2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li><p>与通配符区别</p>
+<ul>
+<li>正则是文件中匹配符合条件的<strong>字符串</strong>，包含匹配。grep、awk、sed等</li>
+<li>通配符（*, ?）是匹配条件的<strong>文件名</strong>，完全匹配。ls、find、cp</li>
+</ul>
+</li>
+<li><p>常见</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*  		前一个字符匹配0次或任意多次  <span class="string">"a*"</span> 匹配所有，无意义</span><br><span class="line">.    	匹配任意一个字符</span><br><span class="line">^		匹配行首			<span class="string">"^$"</span> 空白行</span><br><span class="line">$		匹配行尾</span><br><span class="line">[]		一个字符</span><br><span class="line">[^]		</span><br><span class="line">\		转义 (一部分必须转义才能表示、一部分转义后有特殊含义或功能)</span><br><span class="line">\+      1次或多次</span><br><span class="line">\?		零次或一次</span><br><span class="line">\&#123;n\&#125;	表示其前面字符恰好n次</span><br><span class="line">\&#123;n,\&#125;</span><br><span class="line">\&#123;n,m\&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符截取命令"><a href="#字符截取命令" class="headerlink" title="字符截取命令"></a>字符截取命令</h3><ul>
+<li>cut<ul>
+<li>提取一行中某个字段，与grep搭配使用</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#格式</span></span><br><span class="line">cut -f(列号) 1,3  -d(分隔符,默认是tab) <span class="string">":"</span>    <span class="comment"># 第1列内容:第3列内容</span></span><br><span class="line"><span class="comment">#案例 （提取自添加用户名）</span></span><br><span class="line">cat /etc/passwd | grep /bin/bash | grep -v(取反) root | cut -d <span class="string">":"</span> -f 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>printf （在awk中用，一般就用cat、echo）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#很像C语言</span></span><br><span class="line">%ns   	<span class="comment">#n表示输出几个字符</span></span><br><span class="line">%ni	  	<span class="comment">#n输出几个数字</span></span><br><span class="line">%m.nf 	<span class="comment">#m整数位数，n小数位数</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>awk （比cut强大多、复杂）</p>
+</li>
+<li><p>sed（重点★）</p>
+<ul>
+<li>轻量级流编辑器。对数据进行选取、替换、删除、新增的命令</li>
+<li>相比于vi，不光可以修改文件内容，还可以直接修改命令结果</li>
+</ul>
+<p>格式：</p>
+<p>​    <code>sed [option] &#39;[action]&#39; 文件名</code></p>
+<ul>
+<li>option:<ul>
+<li>-n       一般sed命令输出所有数据。此处会把经过sed处理的行输出到屏幕</li>
+<li>-e       允许对输入数据应用多条sed编辑</li>
+<li>-i        用sed的修改结果直接修改读取数据的文件，而不是输出到屏幕        </li>
+</ul>
+</li>
+<li>action:<ul>
+<li>a \       追加， 在当前行后添加一行或多行。添加多行，除最后一行，每行末尾需要用<code>&quot;\&quot;</code>代表数据未完结。</li>
+<li>c \     行替换，用c后面的字符串替换原数据行，替换多行时………同上</li>
+<li>i \     插入，在当期行前插入一行或多行。插入多行………同上</li>
+<li>d     删除，删除指定行</li>
+<li>p    打印，输出指定的行</li>
+<li>s    字串替换，用一个字符串替换另一个字符串。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>​            格式为<code>&quot;行范围s/旧字串/新字串/g&quot;</code></p>
+<p>​          （ /g表示一行中<strong>所有</strong>匹配到的，不加则为第一次匹配到的）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">'2p'</span> file  		<span class="comment">#打印输出第2行</span></span><br><span class="line">sed <span class="string">'2,4d'</span> file 		<span class="comment">#删除第2到4行   $表示最后行</span></span><br><span class="line">sed <span class="string">'/2/d'</span> test.txt     <span class="comment">#sed中正则用/.../中间</span></span><br><span class="line">sed <span class="string">'2a hello'</span> file  	<span class="comment">#在第二行后追加hello</span></span><br><span class="line">sed <span class="string">'2i hello\</span></span><br><span class="line"><span class="string">world'</span> file 			<span class="comment">#在第二行前插入两行数据(hello\nworld)</span></span><br><span class="line">sed <span class="string">'2c no such p'</span> file	</span><br><span class="line">sed -i <span class="string">'4s/99/55/g'</span> file     <span class="comment">#把第4行的99改为55</span></span><br><span class="line">sed -e <span class="string">'s/lp//g;s/fyd//g'</span> file <span class="comment">#同时吧"lp"和"fyd"替换为空</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符处理命令"><a href="#字符处理命令" class="headerlink" title="字符处理命令"></a>字符处理命令</h3><ul>
+<li><p>排序命令sort</p>
+<ul>
+<li><p>-f  忽略大小写</p>
+</li>
+<li><p>-n  以数值型进行排序，默认用字符串排序</p>
+</li>
+<li><p>-r   反向排序</p>
+</li>
+<li><p>-t    指定分隔符，默认是制表符</p>
+</li>
+<li><p>-k n[,m] 按照执行的字段范围排序。从第n字段开始，m字段结束（默认到行尾）</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -n -t <span class="string">":"</span> -k 3,3 /etc/passwd <span class="comment">#用:分割后第三个字段按数值大小排序</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>统计命令wc</p>
+<ul>
+<li><p>-l   只统计行数</p>
+</li>
+<li><p>-w 只统计单词数</p>
+</li>
+<li><p>-m 只统计字符数</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><ul>
+<li>符号<code>[]</code></li>
+</ul>
+<ol>
+<li>按照文件类型进行判断</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-d  <span class="comment">#判断该文件是否存在，并且是否为目录</span></span><br><span class="line">-e  <span class="comment">#判断该文件是否存在</span></span><br><span class="line">-f  <span class="comment">#判断该文件是否存在，并且是否为普通文件</span></span><br><span class="line"><span class="built_in">test</span> -e file</span><br><span class="line">[ -e file ]   <span class="comment">#两种方式等价  echo $?判断</span></span><br><span class="line">[ -d file ] &amp;&amp; <span class="built_in">echo</span> <span class="string">'yes'</span> || <span class="built_in">echo</span> <span class="string">"no"</span>  <span class="comment">#不用手工判断</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>判断文件权限</p>
+<ul>
+<li>-r</li>
+<li>-w</li>
+<li>-x</li>
+</ul>
+</li>
+<li><p>两个文件之间进行比较</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件1 -nt 文件2 <span class="comment">#判断文件1修改时间是否比文件2新</span></span><br><span class="line">-ot	 <span class="comment">#比谁旧</span></span><br><span class="line">-ef	 <span class="comment">#判断Inode号一致，两个文件是否为同一个文件。用于判断硬链接(Inode号一致)</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>两个整数之间比较</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-eq		=</span><br><span class="line">-ne		!=</span><br><span class="line">-gt		&gt;</span><br><span class="line">-lt		&lt;</span><br><span class="line">-ge		&gt;=</span><br><span class="line">-le   	&lt;=</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>字符串判断</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-z		<span class="comment">#判断字符串是否为空</span></span><br><span class="line">-n		<span class="comment">#非空</span></span><br><span class="line">==</span><br><span class="line">!=</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>多重条件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">判断1 -a 判断2	<span class="comment">#与</span></span><br><span class="line">-o	<span class="comment">#或</span></span><br><span class="line">!	<span class="comment">#非</span></span><br></pre></td></tr></table></figure>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 条件判断 ];<span class="keyword">then</span></span><br><span class="line">	code</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">或者</span><br><span class="line"><span class="keyword">if</span> [ 条件判断 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		code</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#双分支</span></span><br><span class="line"><span class="keyword">if</span> [ 条件判断 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		success</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	fail</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment">#多分支</span></span><br><span class="line"><span class="keyword">if</span> [ 条件1 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line"><span class="keyword">elif</span> [ 条件2 ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>案例1 备份</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">date=$(date +\%y\%m\%d) <span class="comment">#百分号必须转义，不然在定时任务中会到其内定含义</span></span><br><span class="line">size=$(du -sh 需要备份的文件夹)</span><br><span class="line"><span class="keyword">if</span> [ -d /tmp/backup ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Date : <span class="variable">$date</span>!"</span> &gt; /tmp/backup/info.txt</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Data size: <span class="variable">$size</span>"</span> &gt;&gt; /tmp/backup/info.txt</span><br><span class="line">	<span class="built_in">cd</span> /tmp/backup</span><br><span class="line">	tar -zcf  backupDB_<span class="variable">$date</span>.tar.gz  /etc /tmp/backup/info.txt &amp;&gt;/dev/null</span><br><span class="line">	rm -rf /tmp/backup/info.txt</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir /tmp/backup</span><br><span class="line">    同上</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>案例2 判断用户输入 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input a filename:"</span> -t 3 file <span class="comment">#3s内输入</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$file</span>"</span> ] <span class="comment">#空</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"error, null"</span></span><br><span class="line">		<span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">elif</span> [ ! -e <span class="string">"<span class="variable">$file</span>"</span> ] <span class="comment">#是否存在</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"file not exist"</span></span><br><span class="line">		<span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">elif</span> [ -d <span class="string">"<span class="variable">$file</span>"</span> ]</span><br><span class="line">	<span class="keyword">then</span> </span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"file is a directory"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="case"><a href="#case" class="headerlink" title="case"></a>case</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> $变量名 <span class="keyword">in</span></span><br><span class="line">	<span class="string">"值1"</span>)</span><br><span class="line">		;;</span><br><span class="line">	<span class="string">"值2"</span>)</span><br><span class="line">		;;</span><br><span class="line">	*)</span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><ul>
+<li><p>格式1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 变量名 <span class="keyword">in</span> 值1 值2 值3...</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		$变量名</span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>案例：批量解压缩</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/lp</span><br><span class="line">ls *.tar.gz &gt; ls.log</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(cat ls.log)</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		tar -zxf <span class="variable">$i</span> &amp;&gt;/dev/null</span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line">rm -rf ~/lp/ls.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>((初始;条件;))</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#todo:</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="while和until"><a href="#while和until" class="headerlink" title="while和until"></a>while和until</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> [ 条件 ]</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#todo:</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line">	</span><br><span class="line">until [ 条件 ]  <span class="comment">#到条件退出循环</span></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#todo:</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h3><h4 id="crontab设置"><a href="#crontab设置" class="headerlink" title="crontab设置"></a>crontab设置</h4><ul>
+<li><p>前提：crond服务默认自启动</p>
+</li>
+<li><p>用法</p>
+<ul>
+<li>-e         编辑定时任务</li>
+<li>-l              查询任务</li>
+<li>-r              删除当前用户所有的任务</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"><span class="comment">#进入vim编辑工作</span></span><br><span class="line">* * * * * 执行的任务</span><br><span class="line">一小时当中第几分   0-59</span><br><span class="line">一天中第几小时	   0-23</span><br><span class="line">一月中第几天	    1-31</span><br><span class="line">一年中第几月		1-12</span><br><span class="line">一周中星期几		0-7(0、7都代表星期日)</span><br><span class="line">* 任何时间</span><br><span class="line">，不连续时间  0 8,12,16 * * * <span class="comment">#每天8、12、16时</span></span><br><span class="line">- 连续时间</span><br><span class="line">*/n	每隔多久</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="单机备份"><a href="#单机备份" class="headerlink" title="单机备份"></a>单机备份</h3><ul>
+<li><p>前提</p>
+<ul>
+<li><code>yum -y install dump</code></li>
+</ul>
+</li>
+<li><p>备份目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dump -oj -f ~/myBakup.dump.bz2  待备份的目录</span><br><span class="line"><span class="comment">#目录只能用0级别完全备份</span></span><br><span class="line"></span><br><span class="line">cat /etc/dumpdatas <span class="comment">#查看备份时间文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">restore -r -f ~/myBakup.dump.bz2  <span class="comment">#恢复到当前目录</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+
+    
+      <div>
+        <hr />
+<center>本&nbsp;&nbsp;&nbsp;文&nbsp;&nbsp;&nbsp;结&nbsp;&nbsp;&nbsp;束&nbsp;&nbsp;&nbsp;啦&nbsp;&nbsp;&nbsp;<i class="fa fa-edit"></i>&nbsp;&nbsp;&nbsp;感&nbsp;&nbsp;&nbsp;谢&nbsp;&nbsp;&nbsp;您&nbsp;&nbsp;&nbsp;的&nbsp;&nbsp;&nbsp;阅&nbsp;&nbsp;&nbsp;读</center>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    L.. P...
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://laiping816.github.io/2018/12/01/Linux/Shell/" title="shell编程">https://laiping816.github.io/2018/12/01/Linux/Shell/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="L.. P... 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="L.. P... 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/26/mood/" rel="next" title="Mood">
+                <i class="fa fa-chevron-left"></i> Mood
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/10/JavaWeb/JavaWeb基础学习1/" rel="prev" title="JavaWeb基础学习(1)">
+                JavaWeb基础学习(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tx.jpg"
+                alt="L.. P..." />
+            
+              <p class="site-author-name" itemprop="name">L.. P...</p>
+              <p class="site-description motion-element" itemprop="description">不是困难太多  而是选择太多</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/laiping816" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:laiping816@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/Weekday08" target="_blank" title="新浪微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>新浪微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5aefd4edf265da0b934838dd" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/junhong1995/" title="Back-end_JH" target="_blank">Back-end_JH</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="要位置请联系我" target="_blank">要位置请联系我</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bash中基本功能"><span class="nav-number">1.1.</span> <span class="nav-text">bash中基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bash变量与变量分类"><span class="nav-number">1.2.</span> <span class="nav-text">Bash变量与变量分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户自定义变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">用户自定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.2.2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置参数变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">位置参数变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义变量"><span class="nav-number">1.2.4.</span> <span class="nav-text">预定义变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">1.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量配置文件"><span class="nav-number">1.4.</span> <span class="nav-text">环境变量配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-编程"><span class="nav-number">1.5.</span> <span class="nav-text">Shell 编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出重定向"><span class="nav-number">1.5.1.</span> <span class="nav-text">输出重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.5.2.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符截取命令"><span class="nav-number">1.5.3.</span> <span class="nav-text">字符截取命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符处理命令"><span class="nav-number">1.5.4.</span> <span class="nav-text">字符处理命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件判断"><span class="nav-number">1.5.5.</span> <span class="nav-text">条件判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">1.5.6.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for"><span class="nav-number">1.5.6.3.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#while和until"><span class="nav-number">1.5.6.4.</span> <span class="nav-text">while和until</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定时任务"><span class="nav-number">1.5.7.</span> <span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#crontab设置"><span class="nav-number">1.5.7.1.</span> <span class="nav-text">crontab设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单机备份"><span class="nav-number">1.5.8.</span> <span class="nav-text">单机备份</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">L.. P...</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">个人宣泄空间</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
