@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -131,7 +131,7 @@
 
 
 
-  <title>JavaWeb基础学习(1) | Lp's Blog</title>
+  <title>JavaWeb基础学习(1) | Lp's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -150,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -433,7 +433,7 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li>语法</li>
 </ol>
 <ul>
@@ -483,7 +483,7 @@
 <li><p>处理指令：现在基本不用<br><code>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;1.css&quot;?&gt;</code></p>
 </li>
 </ul>
-<ol start="3">
+<ol>
 <li><p>xml约束</p>
 <p>1）、dtd:</p>
 <ul>
@@ -507,7 +507,7 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li>xml解析<ul>
 <li>DOM4J解析</li>
 <li>XPATH(专用于查询)</li>
@@ -638,7 +638,7 @@
 </li>
 </ol>
 <h3 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h3><p><code>this.getServletContext()</code>代表整个应用。</p>
-<p>一个webApp__只有一个__ServletContext对象（无论多少个用户共用一个），单实例</p>
+<p>一个webApp<strong>只有一个</strong>ServletContext对象（无论多少个用户共用一个），单实例</p>
 <ul>
 <li><p>域对象</p>
 <ul>
@@ -695,7 +695,7 @@
 <li>Servlet的<code>service</code>方法结束后，引擎将检查输出流对象是否调用过<code>close()</code>，若未关闭则由引擎来关闭</li>
 </ol>
 </blockquote>
-<ol start="2">
+<ol>
 <li>HttpServletRequest</li>
 </ol>
 <ul>
@@ -816,7 +816,7 @@
 </ul>
 </li>
 </ul>
-<ol start="2">
+<ol>
 <li><p>Session</p>
 <p>​    服务器为每个用户浏览器创一个Session对象，<strong>一个浏览器独占一个Session</strong>。因此，在需要保存用户数据时，服务器程序可以把用户数据写到用户浏览器独占的Session。当用户浏览器访问当前App下其他程序，获取该Session。</p>
 </li>
@@ -869,7 +869,7 @@
 <p>返回的url： <code>http://url;JSESSIONID=111</code></p>
 </li>
 </ol>
-<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><p>JSP__本质__就是Servlet。</p>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><p>JSP<strong>本质</strong>就是Servlet。</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
 <li><p>浏览器访问jsp页面，服务器是如何调用执行jsp页面？（Servlet）</p>
 <ul>
@@ -934,6 +934,7 @@
 <p> 在&lt;%=%&gt; &lt;% %&gt;内部直接使用的对象</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -989,6 +990,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>pageContext(重要)</p>
 <ol>
 <li><p>本身也是一个域对象：它可以操作其它三个域对象（request session application）的数据</p>
@@ -1198,7 +1200,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1220,7 +1222,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1836,10 +1838,32 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

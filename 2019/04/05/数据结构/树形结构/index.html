@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="线性," />
+  <meta name="keywords" content="非线性," />
 
 
 
@@ -79,20 +79,32 @@
 
 
 
-<meta name="description" content="时间复杂度、数组、栈、队列、链表">
-<meta name="keywords" content="线性">
+<meta name="description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
+<meta name="keywords" content="非线性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性数据结构">
-<meta property="og:url" content="https://laiping816.github.io/2019/02/10/数据结构/线性数据结构/index.html">
+<meta property="og:title" content="树形结构">
+<meta property="og:url" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/index.html">
 <meta property="og:site_name" content="Lp&#39;s Blog">
-<meta property="og:description" content="时间复杂度、数组、栈、队列、链表">
+<meta property="og:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://image-link.nos-eastchina1.126.net/linearDS">
-<meta property="og:updated_time" content="2019-02-24T06:41:24.934Z">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/time.jpg">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/二叉堆.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/二叉堆2.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/siftdown.gif">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/union.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/树状union.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/size优化问题.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/路径压缩.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/路径压缩最大.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/哈希冲突.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/字符串转哈希.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/链地址法.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/哈希表最终设计.png">
+<meta property="og:updated_time" content="2019-04-05T10:59:02.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线性数据结构">
-<meta name="twitter:description" content="时间复杂度、数组、栈、队列、链表">
-<meta name="twitter:image" content="https://image-link.nos-eastchina1.126.net/linearDS">
+<meta name="twitter:title" content="树形结构">
+<meta name="twitter:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
+<meta name="twitter:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/time.jpg">
 
 
 
@@ -122,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://laiping816.github.io/2019/02/10/数据结构/线性数据结构/"/>
+  <link rel="canonical" href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/"/>
 
 
 
 
 
-  <title>线性数据结构 | Lp's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>树形结构 | Lp's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -300,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2019/02/10/数据结构/线性数据结构/">
+    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L.. P...">
@@ -317,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">线性数据结构</h1>
+          <h1 class="post-title" itemprop="name headline">树形结构</h1>
         
 
         <div class="post-meta">
@@ -329,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-10T17:11:00+08:00">
-                2019-02-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T21:21:00+08:00">
+                2019-04-05
               </time>
             
 
@@ -345,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-24T14:41:24+08:00">
-                2019-02-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-05T18:59:02+08:00">
+                2019-04-05
               </time>
             
           </span>
@@ -407,286 +419,344 @@
       
 
       
-        <blockquote class="blockquote-center"><p>时间复杂度、数组、栈、队列、链表</p></blockquote>
+        <blockquote class="blockquote-center"><p>二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新</p></blockquote>
 
-<p><img src="https://image-link.nos-eastchina1.126.net/linearDS"></p>
+<p><img src="/2019/04/05/数据结构/树形结构/time.jpg" alt=""></p>
 <a id="more"></a>
-<h1 id="复杂度介绍"><a href="#复杂度介绍" class="headerlink" title="复杂度介绍"></a>复杂度介绍</h1><ul>
-<li><p>衡量代码好坏指标</p>
+<h1 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h1><ul>
+<li>树<ul>
+<li>二分搜索树</li>
+<li>平衡二叉树：AVL；红黑树</li>
+<li>堆；并查集</li>
+<li>线段树；Trie（字典树，前缀树）</li>
+</ul>
+</li>
+</ul>
+<h2 id="二分搜索树"><a href="#二分搜索树" class="headerlink" title="二分搜索树"></a>二分搜索树</h2><p>动态数据结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    E e;</span><br><span class="line">    Node left;</span><br><span class="line">    Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>运行时间（时间复杂度）</li>
-<li>占用空间（空间复杂度）</li>
-</ul>
-</li>
-<li><p>时间复杂度</p>
-<p>由于运行环境和输入规模的影响，代码绝对时间无法估计，但可预估代码的基本操作<strong>执行次数</strong></p>
-<p>计算得出T(n) = ….表达式</p>
+<li><p>特点</p>
 <ul>
-<li><p>渐进时间复杂度</p>
-<p>当n趋于 ∞ 的时候得到的极值</p>
+<li>每个节点的值 &gt; 其左子树<strong>所有</strong>节点值，&lt; 右子树</li>
+<li>每棵子树也是二分搜索树</li>
+<li>自定义类，必须提供比较规则</li>
+</ul>
+</li>
+<li><p>遍历：O(n)</p>
 <ul>
-<li>运行时间为常数量级，O （1）</li>
-<li>只保留时间函数中最高阶项，且省去最高阶前系数</li>
-<li>常见有O（1）&lt; O（logn）&lt; O（n）&lt; O（n^2）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h1><ul>
-<li><p>底层依托静态数组</p>
-<p>（ArrayList、数组栈、数组队列）</p>
+<li><p>深度优先遍历（一扎到底）</p>
 <ul>
-<li>优<ul>
-<li>有随机访问能力，index</li>
+<li>前序（<code>node</code>,  <code>node.left</code>,  <code>node.right</code>）<ul>
+<li>一般只是想遍历执行操作（或输出结果）可选用先序遍历</li>
 </ul>
 </li>
-<li>缺<ul>
-<li>靠resize解决固定容量问题</li>
+<li>中序（<code>node.left</code>,  <code>node</code>,  <code>node.right</code>）<ul>
+<li>符合从小到大（或从大到小）顺序的，故要遍历输出<strong>排序</strong>好的结果需要使用中序遍历</li>
+</ul>
+</li>
+<li>后续（<code>node.left</code>,  <code>node.right</code>, <code>node</code>）<ul>
+<li>肯定已经遍历过该节点的左右子节点，故适用于要进行破坏性操作的情况，比如删除所有节点</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>真正动态数据结构（无需考虑容量）</p>
-<p>（链表LinkedList、链表栈、链表队列）</p>
+<li><p>广度优先遍历（更快找到问题的解 - 最短路径）</p>
 <ul>
-<li>优<ul>
-<li>真正动态，不需要处理固定容量问题</li>
-</ul>
-</li>
-<li>缺<ul>
-<li>丧失随机访问能力</li>
+<li>层序</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="动态数组"><a href="#动态数组" class="headerlink" title="动态数组"></a>动态数组</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><blockquote>
-<p>注意</p>
+<h2 id="集合-Set"><a href="#集合-Set" class="headerlink" title="集合(Set)"></a>集合(Set)</h2><p>元素不重复</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Interface Set&lt;E&gt; &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(E)</span></span>; <span class="comment">//不能添加重复元素</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(E)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(E e)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>参数有index，都需要界限判断</li>
-<li>容量capacity不够，加倍;   删除导致容量过多，减半</li>
-</ul>
-</blockquote>
+<li><p>实现方式</p>
 <ul>
-<li><p>复杂度分析</p>
+<li><p>二分搜索树（有序）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BSTSet</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">E</span>&gt;&gt; <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>h（层数1.2.3…）对应有<code>2^(h - 1)</code>个结点。满二叉树结点数<code>n = 2^h - 1</code></p>
+<p>h = log(n + 1)</p>
 <ul>
-<li><p>添加操作：<code>O(n)</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addLast(e) 		 O(<span class="number">1</span>)</span><br><span class="line">addFirst(e) 	 O(n)    </span><br><span class="line">add(index, e) 	 O(n) 算期望为n/<span class="number">2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除操作：<code>O(n)</code></p>
-<p>同添加</p>
-</li>
-<li><p>修改操作：已知索引<code>O(1)</code>；未知索引<code>O(n)</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(index, e)	O(<span class="number">1</span>):支持随机访问</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查找操作：已知索引<code>O(1)</code>；未知索引<code>O(n)</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get(index)		O(<span class="number">1</span>)</span><br><span class="line">contain(e)		O(n)</span><br><span class="line">find(e)			O(n)</span><br></pre></td></tr></table></figure>
-</li>
+<li>增删查的复杂度：O(h) = O(logn)</li>
 </ul>
 </li>
-<li><p>均摊时间复杂度</p>
-<p>由于<code>resize</code>操作的存在，不可能每次添加都会触发。</p>
-<p>假设<code>capacity = n</code>，n+1次<code>addLast</code>，触发1次<code>resize</code>，总共进行2n+1次基本操作。</p>
-<p>（2n+1）/（n+1）≈ 2， 所以均摊时间复杂度为O(1)</p>
-</li>
-<li><p>复杂度震荡的问题</p>
-<p>在capacity临界的地方，交替执行<code>addLast</code>和<code>removeLast</code>会出现频繁扩容缩容。</p>
-<p>解决：Lazy，当size == capacity / 4时，再减去一半。</p>
-</li>
-</ul>
-<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><ul>
-<li><p>节点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    E e;</span><br><span class="line">    Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>★设立虚拟头结点dummyHead</p>
-<ol>
-<li>为了解决，由于头位置没有前节点，有些操作（寻找Predecessor）需要区别对待的问题</li>
-<li>为统一操作，故而添加</li>
-</ol>
-</blockquote>
+<li><p>链表（无序）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedListSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>时间复杂度</p>
-<ul>
-<li>增     <code>O(n)</code><ul>
-<li>addLast                  O(n) </li>
-<li>addFirst                  O(1)</li>
-<li>add                          O(n/2)=O(n)</li>
+<li>复杂度O(n)效率低</li>
+<li>基于哈希表效率高</li>
 </ul>
 </li>
-<li>删    <code>O(n)</code><ul>
-<li>removeLast            O(n) </li>
-<li>removeFirst           O(1)</li>
-<li>remove                   O(n/2)=O(n)</li>
-</ul>
-</li>
-<li><p>改    <code>O(n)</code></p>
-</li>
-<li><p>查    <code>O(n)</code></p>
-<ul>
-<li>get                           O(n)</li>
-<li>contains                  O(n)</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>小结</p>
+<p>当h = n时，二分搜索树即退化成链表。</p>
+<p>解决方法：平衡二叉树</p>
 </blockquote>
-<ol>
-<li>如果只对链表头进行操作：O(1)</li>
-<li>一般不进行修改操作</li>
-<li>只查表头元素 O(1)</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p><strong>引申</strong></p>
-<ol>
-<li>双链表</li>
-<li>循环链表，jdk内部实现方式，null节点为虚拟头结点</li>
-<li>数组链表</li>
-</ol>
-</blockquote>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>相当于数组操作的一个子集。后进先出Last In First Out（LIFO）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line">Interface Stack&lt;E&gt; &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(E)</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">peek</span><span class="params">()</span></span>; <span class="comment">//栈顶元素</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>时间复杂度</p>
-<ul>
-<li><p>ArrayStack（数组栈）</p>
-<ul>
-<li>push        O(1) 均摊</li>
-<li>pop              O(1) 均摊</li>
-<li>peek            O(1)</li>
-<li>getSize        O(1)</li>
-<li>isEmpty       O(1)</li>
-</ul>
-</li>
-<li><p>LinkedListStack</p>
-<ul>
-<li>push        O(1) </li>
-<li>pop              O(1) </li>
-<li>peek            O(1)</li>
-<li>getSize        O(1)</li>
-<li>isEmpty       O(1)</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>对比</p>
-<ol>
-<li>复杂度相同，所以差异很小</li>
-<li>但是当插入数据很多的时候，有可能链表栈效率会慢， 因为其<strong>new次数太多</strong>耗费时间，会去内存找新的可以开辟空间的地方</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>先进先出 （FIFO）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line">Interface Queue&lt;E&gt; &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E e)</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">dequeue</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">getFront</span><span class="params">()</span></span>; </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="数组队列"><a href="#数组队列" class="headerlink" title="数组队列"></a>数组队列</h3><ul>
-<li>时间复杂度<ul>
-<li>ArrayQueue（数组对列）<ul>
-<li>enqueue     O(1) 均摊</li>
-<li>dequeue     <strong>O(n) </strong>动态数组每次要往前移，重新赋值</li>
-<li>front            O(1)</li>
-<li>getSize        O(1)</li>
-<li>isEmpty       O(1)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><blockquote>
-<p>数组队列存在的问题：</p>
-<p>删除队首元素时，O(n)，整体需要往前移一个位置，当n很大的时候，耗时</p>
-</blockquote>
+<h2 id="映射-Map"><a href="#映射-Map" class="headerlink" title="映射(Map)"></a>映射(Map)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Map</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(K key, V value)</span></span>;</span><br><span class="line">    <span class="function">V <span class="title">remove</span><span class="params">(K key)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(K key)</span></span>;</span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">(K key)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(K key, V value)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>时间复杂度<ul>
-<li>LoopQueue（循环对列）<ul>
-<li>enqueue     O(1) 均摊</li>
-<li>dequeue     <strong>O(1) </strong>均摊</li>
-<li>front            O(1)</li>
-<li>getSize        O(1)</li>
-<li>isEmpty       O(1)</li>
+<li>链表<ul>
+<li>增删改查O(n)</li>
+</ul>
+</li>
+<li>二分搜索树 <ul>
+<li>增删改查O(h)  = O(logn)</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="链表队列"><a href="#链表队列" class="headerlink" title="链表队列"></a>链表队列</h3><ul>
-<li><p>思路历程</p>
-<ol>
-<li>LinkedList的头部增或删都是 O（1）级别的，而在尾部则需要O（n）级别搜索过去</li>
-<li>因此可以用一个tail引用来记录尾部的地址，这样在尾部增操作也只需要O（1）级别操作。但在尾部删还是需要O（n），因为删除需要prev节点，还是需要遍历</li>
-<li>综合考虑时间复杂度<ul>
-<li>链表头head当做队首，作为删除元素</li>
-<li>尾tail当做队尾，来添加元素</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>时间复杂度</p>
+<blockquote>
+<p>集合，完全可以通过映射实现，只要把value置为null即可</p>
+</blockquote>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><ul>
+<li><p>实现</p>
 <ul>
-<li>LinkedListQueue<ul>
-<li>enqueue     O(1) </li>
-<li>dequeue     O(1) </li>
-<li>front            O(1)</li>
-<li>getSize        O(1)</li>
-<li>isEmpty       O(1)</li>
+<li>普通线性结构   <ul>
+<li>入队：O（1）</li>
+<li>出队：O（n）</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<h2 id="链表与递归"><a href="#链表与递归" class="headerlink" title="链表与递归"></a>链表与递归</h2><p>近乎和链表相关的所有操作，都可以使用递归的形式完成。</p>
+<li><p>顺序线性结构</p>
 <ul>
-<li>案例（删除链表中的元素）</li>
+<li>入队：O（n）</li>
+<li>出队：O（1）</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input:  <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">6</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;<span class="number">6</span>, val = <span class="number">6</span></span><br><span class="line">Output: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>堆</p>
 <ul>
-<li><p>方法</p>
+<li>入队：O（logn）</li>
+<li>出队：O（logn）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h3><ul>
+<li><p>特点</p>
 <ul>
-<li><p>普通链表（不带虚拟头结点）</p>
+<li>完全二叉树（区别满二叉树）：最后层上面一层一定是满的，最后1层叶子结点一定在最左边</li>
+<li>堆中某个节点的值总是 &lt;= 其父节点的值 （最大堆）</li>
+</ul>
+</li>
+<li><p>存储结构</p>
 <ul>
-<li>思路<ol>
-<li>删除操作，必然要找前继结点prev，为做统一化处理，故而头结点需要单独处理</li>
-<li>先写出一般情况，默认头结点一定不是val，则写出遍历</li>
-<li>单独处理头结点，保证头结点一定不是val开头</li>
-</ol>
+<li><p>树(略)</p>
+</li>
+<li><p>数组</p>
+<p><strong>注意</strong>：为了后面求<code>parent</code>和<code>child</code>数组0号位置空出</p>
 </li>
 </ul>
+<p><img src="/2019/04/05/数据结构/树形结构/二叉堆.png" alt=""></p>
+<p>保留第一个位置：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%转换只要把原来的i地方用i+1替换最后减个1就行</span></span><br><span class="line">parent(<span class="built_in">i</span>) = (<span class="built_in">i</span>+<span class="number">1</span>)/<span class="number">2</span> - <span class="number">1</span> = (<span class="built_in">i</span><span class="number">-1</span>)/<span class="number">2</span></span><br><span class="line">left child(<span class="built_in">i</span>) = <span class="number">2</span>*(<span class="built_in">i</span>+<span class="number">1</span>) - <span class="number">1</span> = <span class="number">2</span>*<span class="built_in">i</span>+<span class="number">1</span>;</span><br><span class="line">right child(<span class="built_in">i</span>) = <span class="number">2</span>*(<span class="built_in">i</span>+<span class="number">1</span>)+<span class="number">1</span> - <span class="number">1</span> = <span class="number">2</span>*<span class="built_in">i</span>+<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>带虚拟头结点dummyHead</p>
+</ul>
+<p>  <img src="/2019/04/05/数据结构/树形结构/二叉堆2.png" alt=""></p>
 <ul>
-<li><p>思路</p>
-<p>dummyHead的存在使得可以统一处理问题，简便</p>
-</li>
-</ul>
-</li>
-<li><p>递归</p>
+<li><p>操作堆</p>
 <ul>
-<li><p>思路</p>
-<p>递归解决删除更小的链表中相应的元素</p>
+<li><p>添加(<code>Sift Up</code>堆特有称谓)</p>
+<ul>
+<li>先加在数组最后面</li>
+<li>然后跟父亲比较，一层层比上去直到根节点或者小于等于其父节点</li>
+</ul>
 </li>
+<li><p>取出堆中最大元素(<code>Sift Down</code>)</p>
+<p><img src="/2019/04/05/数据结构/树形结构/siftdown.gif" alt=""></p>
+</li>
+<li><p>replace(取出最大并替换)</p>
+</li>
+<li><p>heapify(将任意数组整理成堆的形状)</p>
+<ul>
+<li><p>O(n)</p>
+</li>
+<li><p><strong>关键</strong>：找到最后1个非叶子结点，一直上去到根一直做下沉操作</p>
+<ul>
+<li>定位最后1个非叶子结点，就是最后1个节点的父节点</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ul>
-<li><p>步骤</p>
-<ol>
-<li>求解最基本的问题</li>
-<li>把原问题转化为更小的问题</li>
-</ol>
-</li>
-<li><p>链表天然的递归性</p>
-<p>链表1：0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; null</p>
-<p>后面看做整体，0 -&gt; 1234 -&gt; null</p>
 </li>
 </ul>
-
+<h3 id="索引堆"><a href="#索引堆" class="headerlink" title="索引堆"></a>索引堆</h3><h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h2><ul>
+<li><p>引入</p>
+<ul>
+<li>区间染色</li>
+<li>区间查询</li>
+</ul>
+<p>对于给定区间</p>
+<p>更新：更新区间中的一个元素或者一个区间的值</p>
+<p>查询：一个区间[i, j]的最大值，最小值，或者区间数字和</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>平衡二叉树（最大和最小深度差距1）</li>
+</ul>
+</li>
+</ul>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>Union Find</p>
+<ul>
+<li><p>复杂度：O(log*n)     近乎是O(1)</p>
+<script type="math/tex; mode=display">
+\log * n=\left\{\begin{array}{cc}{0} & {\text { if }(n \leq 1)} \\ {1+\log *(\log n)} & {\text { if }(n>1)}\end{array}\right.</script></li>
+<li><p>场景</p>
+<ul>
+<li>处理连接问题Connectivity Problem</li>
+<li>路径问题</li>
+<li>集合并集</li>
+</ul>
+</li>
+<li><p>特点</p>
+<ul>
+<li>孩子指向父亲</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UnionFind</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unionElements</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通常还需要一个find方法来确定，当前元素p所对应的集合</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><p>用数组，查O(1)，但是合并O(n)</p>
+<p><img src="/2019/04/05/数据结构/树形结构/union.png" alt=""></p>
+</li>
+<li><p>树形，查O(logn)，合并O(logn)</p>
+<p><img src="/2019/04/05/数据结构/树形结构/树状union.png" alt=""></p>
+</li>
+</ul>
+<h3 id="路径优化"><a href="#路径优化" class="headerlink" title="路径优化"></a>路径优化</h3><ul>
+<li><p>基于size优化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入sz数组</span></span><br><span class="line"><span class="keyword">int</span>[] sz;  <span class="comment">//sz[i]表示以i为根的集合中元素个数</span></span><br><span class="line"><span class="comment">//每次union根据对应集合的size，少的指向多的</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于rank优化(更合理)</p>
+<p>基于size，在如下情况就不适用</p>
+</li>
+</ul>
+<p><img src="/2019/04/05/数据结构/树形结构/size优化问题.png" alt=""></p>
+<ul>
+<li><p>路径压缩(多调用几次也能达到最优效果)</p>
+<p>发生在find方法过程</p>
+<p><img src="/2019/04/05/数据结构/树形结构/路径压缩.png" alt=""></p>
+<p>基于性能考虑不维护rank，但rank仍可作为参考</p>
+</li>
+<li><p>最大化路径压缩(递归耗费性能，并非最优)</p>
+</li>
+</ul>
+<p><img src="/2019/04/05/数据结构/树形结构/路径压缩最大.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//借助递归实现，一归到底，逐级return保证parent[i] = 根</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (p &lt; <span class="number">0</span> || p &gt;= parent.length)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"p out of bound"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (p != parent[p])</span><br><span class="line">    parent[p] = find(parent[p]);</span><br><span class="line">  <span class="keyword">return</span> parent[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="哈希表-散列表"><a href="#哈希表-散列表" class="headerlink" title="哈希表(散列表)"></a>哈希表(散列表)</h2><ul>
+<li><p>经典设计思想：空间换时间</p>
+</li>
+<li><p>什么是哈希表？</p>
+<ul>
+<li><p>例子</p>
+<p>​    例如单词（只含小写字母）字母频率统计，<code>int[26] freq</code> 就是一个哈希表。每一个字符都和一个索引相对应</p>
+</li>
+<li><p>哈希函数 (“键”转换为”索引”)</p>
+<ul>
+<li><p><code>ch - &#39;a&#39;</code></p>
+<p>字符转换为索引的函数 </p>
+</li>
+</ul>
+</li>
+<li><p>哈希冲突</p>
+<p><img src="/2019/04/05/数据结构/树形结构/哈希冲突.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="哈希函数设计"><a href="#哈希函数设计" class="headerlink" title="哈希函数设计"></a>哈希函数设计</h3><ul>
+<li><p>原则</p>
+<p>“键”转换为”索引”</p>
+<ul>
+<li>一致性：if a = b 则hash(a)  =  hash(b)也一定相等</li>
+<li>高效性：计算高效简便</li>
+<li>均匀性：哈希值均匀分布</li>
+</ul>
+</li>
+<li><p>对象</p>
+<ul>
+<li><p>大整数</p>
+<ul>
+<li>%M，模一个素数(数论相关)，素数选择上网查，该素数即哈希表大小</li>
+</ul>
+</li>
+<li><p>浮点数</p>
+<ul>
+<li>内存空间当做int、long来处理转换为大整数的问题</li>
+</ul>
+</li>
+<li><p>字符串</p>
+<ul>
+<li>看做是1个B(base用户可选，如全是小写字母，就为26)进制的大整形</li>
+</ul>
+<p><img src="/2019/04/05/数据结构/树形结构/字符串转哈希.png" alt=""></p>
+</li>
+<li><p>符合类型</p>
+<ul>
+<li>可以套用字符串的处理方法，每个字符可以对应一个字段，Java中进制B取了31。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Java中的hashCode</p>
+<blockquote>
+<p>注意：hashCode只是把”键”转化成了一个整型值，具体要转换为”索引”，还需要%M，这个需要在自己设计的哈希表的类中内部逻辑来完成</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="哈希冲突处理"><a href="#哈希冲突处理" class="headerlink" title="哈希冲突处理"></a>哈希冲突处理</h3><ul>
+<li><p>链地址法(Seperate Chaining)</p>
+<ul>
+<li>保证hashCode为正数 &amp;0x7fffffff，取模</li>
+</ul>
+<p><img src="/2019/04/05/数据结构/树形结构/链地址法.png" alt=""></p>
+<ul>
+<li>每一个索引存储的查找表，用树替代</li>
+</ul>
+<p><img src="/2019/04/05/数据结构/树形结构/哈希表最终设计.png" alt=""></p>
+<blockquote>
+<p><strong>注意</strong>：转成红黑树也是有条件的，如果Key不具有可比较性那不能转</p>
+</blockquote>
+</li>
+<li><p>开放地址法</p>
+<ul>
+<li>线性探测：效率低</li>
+<li>平方探测：1+4+9+16…</li>
+<li>二次哈希</li>
+</ul>
+</li>
+<li>再哈希法</li>
+<li>Coalesced Hashing：综合链地址法和开放地址发</li>
+</ul>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><p>平均复杂度</p>
+<p>总共M个地址，如果放入哈希表的元素为N，哈希碰撞导致平均复杂度如下</p>
+<ul>
+<li>链表：O(N/M)</li>
+<li>平衡树：O(log(N/M))</li>
+</ul>
+</li>
+<li><p>优化 趋于均摊复杂 O(1)</p>
+<ul>
+<li><p>动态空间处理</p>
+<ul>
+<li>平均每个地址承载的元素多过一定程度，即扩容 <code>N / M &gt;= upperTol</code></li>
+<li>平均每个个地址…少…，缩容<code>N / M &lt; lowerTol</code></li>
+</ul>
+</li>
+<li><p>容量变换后M可能不是素数</p>
+<ul>
+<li>构建素数数组，通过索引增加来改变M大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="未完待续更新"><a href="#未完待续更新" class="headerlink" title="未完待续更新"></a>未完待续更新</h2>
       
     </div>
     
@@ -707,7 +777,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://laiping816.github.io/2019/02/10/数据结构/线性数据结构/" title="线性数据结构">https://laiping816.github.io/2019/02/10/数据结构/线性数据结构/</a>
+    <a href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/" title="树形结构">https://laiping816.github.io/2019/04/05/数据结构/树形结构/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -753,7 +823,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/线性/" rel="tag"># 线性</a>
+            <a href="/tags/非线性/" rel="tag"># 非线性</a>
           
         </div>
       
@@ -766,8 +836,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/07/JavaWeb/JavaWeb基础学习2/" rel="next" title="JavaWeb基础学习(2)">
-                <i class="fa fa-chevron-left"></i> JavaWeb基础学习(2)
+              <a href="/2019/03/24/算法/排序/" rel="next" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
               </a>
             
           </div>
@@ -775,10 +845,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/24/算法/排序/" rel="prev" title="排序算法">
-                排序算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -960,7 +1026,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂度介绍"><span class="nav-number">1.</span> <span class="nav-text">复杂度介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性数据结构"><span class="nav-number">2.</span> <span class="nav-text">线性数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态数组"><span class="nav-number">2.1.</span> <span class="nav-text">动态数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">2.1.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.1.2.</span> <span class="nav-text">LinkedList</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">2.2.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列"><span class="nav-number">2.3.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组队列"><span class="nav-number">2.3.1.</span> <span class="nav-text">数组队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环队列"><span class="nav-number">2.3.2.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表队列"><span class="nav-number">2.3.3.</span> <span class="nav-text">链表队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表与递归"><span class="nav-number">2.4.</span> <span class="nav-text">链表与递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">2.4.1.</span> <span class="nav-text">递归</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树形结构"><span class="nav-number">1.</span> <span class="nav-text">树形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分搜索树"><span class="nav-number">1.1.</span> <span class="nav-text">二分搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合-Set"><span class="nav-number">1.2.</span> <span class="nav-text">集合(Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射-Map"><span class="nav-number">1.3.</span> <span class="nav-text">映射(Map)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉堆"><span class="nav-number">1.4.2.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引堆"><span class="nav-number">1.4.3.</span> <span class="nav-text">索引堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线段树"><span class="nav-number">1.5.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.6.</span> <span class="nav-text">并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.6.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径优化"><span class="nav-number">1.6.2.</span> <span class="nav-text">路径优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表-散列表"><span class="nav-number">1.7.</span> <span class="nav-text">哈希表(散列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数设计"><span class="nav-number">1.7.1.</span> <span class="nav-text">哈希函数设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突处理"><span class="nav-number">1.7.2.</span> <span class="nav-text">哈希冲突处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.7.3.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续更新"><span class="nav-number">1.8.</span> <span class="nav-text">未完待续更新</span></a></li></ol></li></ol></div>
             
 
           </div>
