@@ -79,32 +79,40 @@
 
 
 
-<meta name="description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
+<meta name="description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
 <meta name="keywords" content="非线性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树形结构">
-<meta property="og:url" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/index.html">
+<meta property="og:url" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/index.html">
 <meta property="og:site_name" content="Lp&#39;s Blog">
-<meta property="og:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
+<meta property="og:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/time.jpg">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/二叉堆.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/二叉堆2.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/siftdown.gif">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/union.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/树状union.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/size优化问题.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/路径压缩.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/路径压缩最大.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/哈希冲突.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/字符串转哈希.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/链地址法.png">
-<meta property="og:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/哈希表最终设计.png">
-<meta property="og:updated_time" content="2019-04-05T10:59:02.928Z">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/time.jpg">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/二叉堆.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/二叉堆2.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/siftdown.gif">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/union.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/树状union.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/size优化问题.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/路径压缩.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/路径压缩最大.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/左侧不平衡.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/右旋转.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/LR.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/2-3树添加节点1.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/2-3树添加节点2.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/红黑树和2-3转换.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/红黑树.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/RB添加元素.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/哈希冲突.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/字符串转哈希.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/链地址法.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/哈希表最终设计.png">
+<meta property="og:updated_time" content="2019-04-11T14:07:12.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树形结构">
-<meta name="twitter:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新">
-<meta name="twitter:image" content="https://laiping816.github.io/2019/04/05/数据结构/树形结构/time.jpg">
+<meta name="twitter:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
+<meta name="twitter:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/time.jpg">
 
 
 
@@ -134,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/"/>
+  <link rel="canonical" href="https://laiping816.github.io/2019/02/24/数据结构/树形结构/"/>
 
 
 
@@ -312,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/">
+    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2019/02/24/数据结构/树形结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L.. P...">
@@ -341,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T21:21:00+08:00">
-                2019-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T21:21:00+08:00">
+                2019-02-24
               </time>
             
 
@@ -357,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-05T18:59:02+08:00">
-                2019-04-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T22:07:12+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -419,9 +427,9 @@
       
 
       
-        <blockquote class="blockquote-center"><p>二分搜索树（集合、映射）、堆、线段树、并查集、哈希表、未完待续更新</p></blockquote>
+        <blockquote class="blockquote-center"><p>二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、<br>未完待续更新(线段树、Trie)</p></blockquote>
 
-<p><img src="/2019/04/05/数据结构/树形结构/time.jpg" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/time.jpg" alt=""></p>
 <a id="more"></a>
 <h1 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h1><ul>
 <li>树<ul>
@@ -550,12 +558,12 @@
 <p><strong>注意</strong>：为了后面求<code>parent</code>和<code>child</code>数组0号位置空出</p>
 </li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/二叉堆.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/二叉堆.png" alt=""></p>
 <p>保留第一个位置：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%转换只要把原来的i地方用i+1替换最后减个1就行</span></span><br><span class="line">parent(<span class="built_in">i</span>) = (<span class="built_in">i</span>+<span class="number">1</span>)/<span class="number">2</span> - <span class="number">1</span> = (<span class="built_in">i</span><span class="number">-1</span>)/<span class="number">2</span></span><br><span class="line">left child(<span class="built_in">i</span>) = <span class="number">2</span>*(<span class="built_in">i</span>+<span class="number">1</span>) - <span class="number">1</span> = <span class="number">2</span>*<span class="built_in">i</span>+<span class="number">1</span>;</span><br><span class="line">right child(<span class="built_in">i</span>) = <span class="number">2</span>*(<span class="built_in">i</span>+<span class="number">1</span>)+<span class="number">1</span> - <span class="number">1</span> = <span class="number">2</span>*<span class="built_in">i</span>+<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>  <img src="/2019/04/05/数据结构/树形结构/二叉堆2.png" alt=""></p>
+<p>  <img src="/2019/02/24/数据结构/树形结构/二叉堆2.png" alt=""></p>
 <ul>
 <li><p>操作堆</p>
 <ul>
@@ -566,7 +574,7 @@
 </ul>
 </li>
 <li><p>取出堆中最大元素(<code>Sift Down</code>)</p>
-<p><img src="/2019/04/05/数据结构/树形结构/siftdown.gif" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/siftdown.gif" alt=""></p>
 </li>
 <li><p>replace(取出最大并替换)</p>
 </li>
@@ -621,10 +629,10 @@
 </ul>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
 <li><p>用数组，查O(1)，但是合并O(n)</p>
-<p><img src="/2019/04/05/数据结构/树形结构/union.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/union.png" alt=""></p>
 </li>
 <li><p>树形，查O(logn)，合并O(logn)</p>
-<p><img src="/2019/04/05/数据结构/树形结构/树状union.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/树状union.png" alt=""></p>
 </li>
 </ul>
 <h3 id="路径优化"><a href="#路径优化" class="headerlink" title="路径优化"></a>路径优化</h3><ul>
@@ -635,18 +643,131 @@
 <p>基于size，在如下情况就不适用</p>
 </li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/size优化问题.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/size优化问题.png" alt=""></p>
 <ul>
 <li><p>路径压缩(多调用几次也能达到最优效果)</p>
 <p>发生在find方法过程</p>
-<p><img src="/2019/04/05/数据结构/树形结构/路径压缩.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/路径压缩.png" alt=""></p>
 <p>基于性能考虑不维护rank，但rank仍可作为参考</p>
 </li>
 <li><p>最大化路径压缩(递归耗费性能，并非最优)</p>
 </li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/路径压缩最大.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/路径压缩最大.png" alt=""></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//借助递归实现，一归到底，逐级return保证parent[i] = 根</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (p &lt; <span class="number">0</span> || p &gt;= parent.length)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"p out of bound"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (p != parent[p])</span><br><span class="line">    parent[p] = find(parent[p]);</span><br><span class="line">  <span class="keyword">return</span> parent[p];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>解决普通二分搜索树，最差插入退化成链表</p>
+<ul>
+<li>定义：任意节点，左右子树的高度差不超过1</li>
+</ul>
+<h3 id="AVL"><a href="#AVL" class="headerlink" title="AVL"></a>AVL</h3><ul>
+<li><p>计算节点高度和平衡因子(即左右子树高度差)</p>
+</li>
+<li><p>左、右旋转</p>
+<ul>
+<li><p>LL不平衡</p>
+<p><img src="/2019/02/24/数据结构/树形结构/左侧不平衡.png" alt=""></p>
+<ul>
+<li>💡解决：右旋转。证明略</li>
+</ul>
+<p><img src="/2019/02/24/数据结构/树形结构/右旋转.png" alt=""></p>
+</li>
+<li><p>RR：左旋转</p>
+</li>
+<li><p>LR：先对x<strong>左旋转</strong>转换为<strong>LL</strong>问题，在对y右旋转</p>
+<p><img src="/2019/02/24/数据结构/树形结构/LR.png" alt=""></p>
+</li>
+<li><p>RL：先对x<strong>右旋转</strong>转换为<strong>RR</strong>问题，在对y左旋转</p>
+</li>
+</ul>
+</li>
+<li><p>再添加和删除操作中检查平衡</p>
+</li>
+</ul>
+<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><blockquote>
+<p>要点：</p>
+<ol>
+<li>红黑树和2-3树等价关系</li>
+<li>红黑树5条性质</li>
+<li>牺牲平衡性，保持了”黑平衡”，统计性能更优</li>
+</ol>
+</blockquote>
+<ul>
+<li>算法导论中的定义  (最大高度：2logn 即每个节点都是3-节点)<ul>
+<li>每个节点红的或黑的</li>
+<li>根节点是黑的</li>
+<li>每个叶子节点(最后的空节点)是黑的。定义了空的节点，为黑色</li>
+<li>如果一个节点是红的，那么它的孩子节点是黑的</li>
+<li>从任意一个节点到叶子节点，经过的黑色节点是一样的(保持了”黑平衡”的二叉树)</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h4><ul>
+<li><p>特点</p>
+<ul>
+<li>满足二分搜索树的基本性质</li>
+<li>节点可以存放一个元素（2个孩子）或者两个元素(3个孩子)</li>
+<li>绝对平衡，任意节点左右子树高度相同</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> a                    b   c</span><br><span class="line">/ \                /    |   \</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2-3树维护绝对平衡</p>
+<p>添加节点不会添加到空的位置</p>
+<ul>
+<li><p>插入2-节点，就普通融合构成3-节点即可</p>
+</li>
+<li><p>插入3-节点</p>
+<ul>
+<li><p>父亲节点是2-节点</p>
+<p><img src="/2019/02/24/数据结构/树形结构/2-3树添加节点1.png" alt=""></p>
+</li>
+<li><p>父亲节点是3-节点</p>
+<p>最后一步退化继续向上融合后，在向上递归直到遇到2-节点或者根节点停止</p>
+<p><img src="/2019/02/24/数据结构/树形结构/2-3树添加节点2.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="转换与等价性"><a href="#转换与等价性" class="headerlink" title="转换与等价性"></a>转换与等价性</h4><ul>
+<li>普通2-节点就是黑色</li>
+<li>3-节点中小的那个数为红色，大的仍为黑。因此所有红色节点都是左倾斜的</li>
+</ul>
+<p><img src="/2019/02/24/数据结构/树形结构/红黑树和2-3转换.png" alt=""></p>
+<p>​     例子：普通转换示例</p>
+<p><img src="/2019/02/24/数据结构/树形结构/红黑树.png" alt=""></p>
+<h4 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h4><ul>
+<li><p>插入到2-节点</p>
+<ul>
+<li><p>插入元素比2-节点小，就直接添加到左子树即可</p>
+</li>
+<li><p>插入元素比2-节点大，需要左旋转</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//       node                     x</span></span><br><span class="line"><span class="comment">//      /   \     左旋转         /  \</span></span><br><span class="line"><span class="comment">//     T1   x   ---------&gt;   node   T3</span></span><br><span class="line"><span class="comment">//         / \              /   \</span></span><br><span class="line"><span class="comment">//        T2 T3            T1   T2</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">leftRotate</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">  node.right = x.left;</span><br><span class="line">  x.left = node;</span><br><span class="line">  x.color = node.color;</span><br><span class="line">  node.color = RED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>插入到3-节点</p>
+<ul>
+<li><p>当前 &gt; 3-节点，颜色翻转</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//      42(黑)	                  42(红)</span></span><br><span class="line"><span class="comment">//    /       \      -----&gt;     /      \</span></span><br><span class="line"><span class="comment">//  37(红)    66(新插入红)     37(黑)    66(黑)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flipColors</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">        node.color = RED;</span><br><span class="line">        node.left.color = BLACK;</span><br><span class="line">        node.right.color = BLACK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前 &lt; 3-节点，右旋转再颜色翻转</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//      42(黑)      37(黑)          37(红)	</span></span><br><span class="line"><span class="comment">//     /    ---&gt;   /     \  ---&gt;  /    \</span></span><br><span class="line"><span class="comment">//  37(红)     12(红)	 42(红)  12(黑)	42(黑)</span></span><br><span class="line"><span class="comment">//   /</span></span><br><span class="line"><span class="comment">// 12(新插入红)</span></span><br><span class="line"><span class="comment">//---------------------------------------------</span></span><br><span class="line">    <span class="comment">//     node                   x</span></span><br><span class="line">    <span class="comment">//    /   \     右旋转       /  \</span></span><br><span class="line">    <span class="comment">//   x    T2   -------&gt;   y   node</span></span><br><span class="line">    <span class="comment">//  / \                       /  \</span></span><br><span class="line">    <span class="comment">// y  T1                     T1  T2</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">rightRotate</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">  Node x = node.left;</span><br><span class="line">  <span class="comment">// 右旋转</span></span><br><span class="line">  node.left = x.right;</span><br><span class="line">  x.right = node;</span><br><span class="line">  x.color = node.color;</span><br><span class="line">  node.color = RED;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前在 3-节点2个数值中间，先左旋转再右旋转最后，颜色翻转</p>
+<p><img src="/2019/02/24/数据结构/树形结构/RB添加元素.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>最终add添加维护红黑树的过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断节点node的颜色</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isRed</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(node == <span class="keyword">null</span>)<span class="comment">//空为黑</span></span><br><span class="line">    <span class="keyword">return</span> BLACK;</span><br><span class="line">  <span class="keyword">return</span> node.color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 向红黑树中添加新的元素(key, value)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(K key, V value)</span></span>&#123;</span><br><span class="line">  root = add(root, key, value);</span><br><span class="line">  root.color = BLACK; <span class="comment">// 最终根节点为黑色节点</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回插入新节点后红黑树的根</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">add</span><span class="params">(Node node, K key, V value)</span></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">//右孩子为红色，左孩子为黑色</span></span><br><span class="line">  <span class="keyword">if</span> (isRed(node.right) &amp;&amp; !isRed(node.left))</span><br><span class="line">    node = leftRotate(node);</span><br><span class="line">  <span class="comment">//左孩子、左孩子的左孩子都为红</span></span><br><span class="line">  <span class="keyword">if</span> (isRed(node.left) &amp;&amp; isRed(node.left.left))</span><br><span class="line">    node = rightRotate(node);</span><br><span class="line">  <span class="comment">//左、右孩子都为红</span></span><br><span class="line">  <span class="keyword">if</span> (isRed(node.left) &amp;&amp; isRed(node.right))</span><br><span class="line">    flipColors(node);</span><br><span class="line">  <span class="keyword">return</span> node;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="性能总结"><a href="#性能总结" class="headerlink" title="性能总结"></a>性能总结</h4><ul>
+<li>完全随机数据，普通BST即可。缺点：极端退化成链表(或高度不平衡)</li>
+<li>查询较多，AVL，但保持平衡开销比红黑树要高</li>
+<li>红黑树牺牲了平衡性(2logn的高度)，<strong>统计性能更优</strong>(综合增删改查所有的操作)</li>
+</ul>
 <h2 id="哈希表-散列表"><a href="#哈希表-散列表" class="headerlink" title="哈希表(散列表)"></a>哈希表(散列表)</h2><ul>
 <li><p>经典设计思想：空间换时间</p>
 </li>
@@ -663,7 +784,7 @@
 </ul>
 </li>
 <li><p>哈希冲突</p>
-<p><img src="/2019/04/05/数据结构/树形结构/哈希冲突.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/哈希冲突.png" alt=""></p>
 </li>
 </ul>
 </li>
@@ -693,7 +814,7 @@
 <ul>
 <li>看做是1个B(base用户可选，如全是小写字母，就为26)进制的大整形</li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/字符串转哈希.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/字符串转哈希.png" alt=""></p>
 </li>
 <li><p>符合类型</p>
 <ul>
@@ -713,11 +834,11 @@
 <ul>
 <li>保证hashCode为正数 &amp;0x7fffffff，取模</li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/链地址法.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/链地址法.png" alt=""></p>
 <ul>
 <li>每一个索引存储的查找表，用树替代</li>
 </ul>
-<p><img src="/2019/04/05/数据结构/树形结构/哈希表最终设计.png" alt=""></p>
+<p><img src="/2019/02/24/数据结构/树形结构/哈希表最终设计.png" alt=""></p>
 <blockquote>
 <p><strong>注意</strong>：转成红黑树也是有条件的，如果Key不具有可比较性那不能转</p>
 </blockquote>
@@ -740,7 +861,7 @@
 <li>平衡树：O(log(N/M))</li>
 </ul>
 </li>
-<li><p>优化 趋于均摊复杂 O(1)</p>
+<li><p>优化趋于均摊复杂 O(1)</p>
 <ul>
 <li><p>动态空间处理</p>
 <ul>
@@ -777,7 +898,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://laiping816.github.io/2019/04/05/数据结构/树形结构/" title="树形结构">https://laiping816.github.io/2019/04/05/数据结构/树形结构/</a>
+    <a href="https://laiping816.github.io/2019/02/24/数据结构/树形结构/" title="树形结构">https://laiping816.github.io/2019/02/24/数据结构/树形结构/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -836,8 +957,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/算法/排序/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2019/02/10/数据结构/线性数据结构/" rel="next" title="线性数据结构">
+                <i class="fa fa-chevron-left"></i> 线性数据结构
               </a>
             
           </div>
@@ -845,6 +966,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/24/算法/排序/" rel="prev" title="排序算法">
+                排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1026,7 +1151,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树形结构"><span class="nav-number">1.</span> <span class="nav-text">树形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分搜索树"><span class="nav-number">1.1.</span> <span class="nav-text">二分搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合-Set"><span class="nav-number">1.2.</span> <span class="nav-text">集合(Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射-Map"><span class="nav-number">1.3.</span> <span class="nav-text">映射(Map)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉堆"><span class="nav-number">1.4.2.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引堆"><span class="nav-number">1.4.3.</span> <span class="nav-text">索引堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线段树"><span class="nav-number">1.5.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.6.</span> <span class="nav-text">并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.6.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径优化"><span class="nav-number">1.6.2.</span> <span class="nav-text">路径优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表-散列表"><span class="nav-number">1.7.</span> <span class="nav-text">哈希表(散列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数设计"><span class="nav-number">1.7.1.</span> <span class="nav-text">哈希函数设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突处理"><span class="nav-number">1.7.2.</span> <span class="nav-text">哈希冲突处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.7.3.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续更新"><span class="nav-number">1.8.</span> <span class="nav-text">未完待续更新</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树形结构"><span class="nav-number">1.</span> <span class="nav-text">树形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分搜索树"><span class="nav-number">1.1.</span> <span class="nav-text">二分搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合-Set"><span class="nav-number">1.2.</span> <span class="nav-text">集合(Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射-Map"><span class="nav-number">1.3.</span> <span class="nav-text">映射(Map)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉堆"><span class="nav-number">1.4.2.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引堆"><span class="nav-number">1.4.3.</span> <span class="nav-text">索引堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线段树"><span class="nav-number">1.5.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.6.</span> <span class="nav-text">并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.6.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径优化"><span class="nav-number">1.6.2.</span> <span class="nav-text">路径优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.7.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL"><span class="nav-number">1.7.1.</span> <span class="nav-text">AVL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树"><span class="nav-number">1.7.2.</span> <span class="nav-text">红黑树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3树"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换与等价性"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">转换与等价性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能总结"><span class="nav-number">1.7.2.4.</span> <span class="nav-text">性能总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表-散列表"><span class="nav-number">1.8.</span> <span class="nav-text">哈希表(散列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数设计"><span class="nav-number">1.8.1.</span> <span class="nav-text">哈希函数设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突处理"><span class="nav-number">1.8.2.</span> <span class="nav-text">哈希冲突处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.8.3.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续更新"><span class="nav-number">1.9.</span> <span class="nav-text">未完待续更新</span></a></li></ol></li></ol></div>
             
 
           </div>
