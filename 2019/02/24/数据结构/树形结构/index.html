@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
+<meta name="description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树、B-Tree、B+ Tree）、哈希表、未完待续更新(线段树、Trie)">
 <meta name="keywords" content="非线性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树形结构">
 <meta property="og:url" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/index.html">
 <meta property="og:site_name" content="Lp&#39;s Blog">
-<meta property="og:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
+<meta property="og:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树、B-Tree、B+ Tree）、哈希表、未完待续更新(线段树、Trie)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/time.jpg">
 <meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/二叉堆.png">
@@ -108,10 +108,13 @@
 <meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/字符串转哈希.png">
 <meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/链地址法.png">
 <meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/哈希表最终设计.png">
-<meta property="og:updated_time" content="2019-04-11T14:07:12.270Z">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/B-tree引入例子.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/B-tree.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/b+树.png">
+<meta property="og:updated_time" content="2019-04-21T09:34:53.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树形结构">
-<meta name="twitter:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、未完待续更新(线段树、Trie)">
+<meta name="twitter:description" content="二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树、B-Tree、B+ Tree）、哈希表、未完待续更新(线段树、Trie)">
 <meta name="twitter:image" content="https://laiping816.github.io/2019/02/24/数据结构/树形结构/time.jpg">
 
 
@@ -148,7 +151,7 @@
 
 
 
-  <title>树形结构 | Lp's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>树形结构 | Lp's Blog</title>
   
 
 
@@ -167,7 +170,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -365,8 +368,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T22:07:12+08:00">
-                2019-04-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-21T17:34:53+08:00">
+                2019-04-21
               </time>
             
           </span>
@@ -427,7 +430,7 @@
       
 
       
-        <blockquote class="blockquote-center"><p>二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树）、哈希表、<br>未完待续更新(线段树、Trie)</p></blockquote>
+        <blockquote class="blockquote-center"><p>二分搜索树（集合、映射）、堆、线段树、并查集、平衡二叉树（AVL、红黑树、B-Tree、B+ Tree）、哈希表、<br>未完待续更新(线段树、Trie)</p></blockquote>
 
 <p><img src="/2019/02/24/数据结构/树形结构/time.jpg" alt=""></p>
 <a id="more"></a>
@@ -877,6 +880,90 @@
 </ul>
 </li>
 </ul>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h2><ul>
+<li><p>为什么不用二分搜索或者红黑树？</p>
+<p>​    磁盘IO，db索引存储在disk上，数据量大，索引可能有几个G。当查询时，显然不可能把整个索引全部加载到内存。能做只有逐一加载每个磁盘页(索引树的节点)。</p>
+<blockquote>
+<p>注意：实际是以磁盘块为单位读取，而InnoDB存储引擎是以页为最小单位管理，方便起见称磁盘页</p>
+</blockquote>
+<ul>
+<li><p>eg：如果拿h=4的二分搜索找10</p>
+<p><img src="/2019/02/24/数据结构/树形结构/B-tree引入例子.png" alt=""></p>
+<ul>
+<li>第一次磁盘IO，找9</li>
+<li>第2次，找13</li>
+<li>第3次，找11</li>
+<li>第4次，找到10</li>
+</ul>
+<p>磁盘IO的次数是由树的高度所决定</p>
+<p>因此为了减少磁盘IO的次数，<strong>核心思想</strong>：就需要把原来”<strong>瘦高</strong>“的树结构，变得”<strong>矮胖</strong>“</p>
+</li>
+</ul>
+</li>
+<li><p>特点</p>
+<p>多路平衡二叉树，每个节点最多包含k个孩子(称”B树的阶”)。k的大小取决于磁盘页的大小</p>
+<p>m阶B树的特征：</p>
+<ul>
+<li>根节点至少2个子女</li>
+<li>每个中间节点都包含k-1个元素和k个孩子，(其中$\frac{m}{2} \leq k  \leq m$)</li>
+<li>和上面一条一样，每个叶子节点都包含k-1个元素，(其中$\frac{m}{2} \leq k  \leq m$)</li>
+<li>所有叶子叶子节点都位于同一层</li>
+<li><p>每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。</p>
+</li>
+<li><p>eg：</p>
+<ul>
+<li>查找操作：3阶B-树为例（就是2-3树），找5的过程</li>
+</ul>
+<p><img src="/2019/02/24/数据结构/树形结构/B-tree.png" alt="">整个流程，查询次数一点也不必二分搜索树少，<strong>但相比磁盘IO的速度，内存中的比较耗时几乎可以忽略</strong>。因此只要树的高度够低，IO次数足够少，就能提高性能。</p>
+<ul>
+<li><p>添加、删除操作</p>
+<p>和2-3树添加数据一样，保持完全平衡</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>文件系统以及部分数据库索引，比如著名的MongoDB，大部分关系型数据库，则使用B+树作为索引</li>
+</ul>
+</li>
+</ul>
+<h2 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+树"></a>B+树</h2><ul>
+<li><p>特点</p>
+<ul>
+<li>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。</li>
+<li>所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。</li>
+<li>所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。</li>
+</ul>
+<p><img src="/2019/02/24/数据结构/树形结构/b+树.png" alt=""></p>
+<blockquote>
+<p>注意：根节点的最大元素，也是是整个B+树的最大元素。优化无论插入或者删除元素，记得维护。</p>
+</blockquote>
+</li>
+<li><p>卫星数据</p>
+<p>实际就是数据记录行，在B+树中只有叶子节点带卫星数据，其他中间节点只是索引</p>
+<ul>
+<li>聚集索引：叶子节点直接包含卫星数据</li>
+<li>非聚集：包含的是卫星数据的指针</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li><p>单行查询：eg：上面查3</p>
+<p>(8,15) -&gt; (2, 5, 8) -&gt; (3, 5)，看似过程和B-tree差不多</p>
+<ul>
+<li>B+ tree中间节点无卫星数据，同样大小磁盘页可容纳更多节点元素(更”矮胖”)、<strong>IO少</strong></li>
+<li><strong>查询性能稳定</strong>，一定会找到叶子节点，而B-tree则不稳定</li>
+</ul>
+</li>
+<li><p><strong>范围查询简便</strong></p>
+<p>B-tree中要依靠中序遍历，复杂。</p>
+<p>B+tree只要找到下限，根据链表指针找到上限即可</p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="未完待续更新"><a href="#未完待续更新" class="headerlink" title="未完待续更新"></a>未完待续更新</h2>
       
     </div>
@@ -1050,7 +1137,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1061,7 +1148,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1072,7 +1159,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1151,7 +1238,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树形结构"><span class="nav-number">1.</span> <span class="nav-text">树形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分搜索树"><span class="nav-number">1.1.</span> <span class="nav-text">二分搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合-Set"><span class="nav-number">1.2.</span> <span class="nav-text">集合(Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射-Map"><span class="nav-number">1.3.</span> <span class="nav-text">映射(Map)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉堆"><span class="nav-number">1.4.2.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引堆"><span class="nav-number">1.4.3.</span> <span class="nav-text">索引堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线段树"><span class="nav-number">1.5.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.6.</span> <span class="nav-text">并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.6.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径优化"><span class="nav-number">1.6.2.</span> <span class="nav-text">路径优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.7.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL"><span class="nav-number">1.7.1.</span> <span class="nav-text">AVL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树"><span class="nav-number">1.7.2.</span> <span class="nav-text">红黑树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3树"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换与等价性"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">转换与等价性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能总结"><span class="nav-number">1.7.2.4.</span> <span class="nav-text">性能总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表-散列表"><span class="nav-number">1.8.</span> <span class="nav-text">哈希表(散列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数设计"><span class="nav-number">1.8.1.</span> <span class="nav-text">哈希函数设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突处理"><span class="nav-number">1.8.2.</span> <span class="nav-text">哈希冲突处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.8.3.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续更新"><span class="nav-number">1.9.</span> <span class="nav-text">未完待续更新</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树形结构"><span class="nav-number">1.</span> <span class="nav-text">树形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分搜索树"><span class="nav-number">1.1.</span> <span class="nav-text">二分搜索树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合-Set"><span class="nav-number">1.2.</span> <span class="nav-text">集合(Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射-Map"><span class="nav-number">1.3.</span> <span class="nav-text">映射(Map)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列"><span class="nav-number">1.4.1.</span> <span class="nav-text">优先队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉堆"><span class="nav-number">1.4.2.</span> <span class="nav-text">二叉堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引堆"><span class="nav-number">1.4.3.</span> <span class="nav-text">索引堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线段树"><span class="nav-number">1.5.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集"><span class="nav-number">1.6.</span> <span class="nav-text">并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">1.6.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径优化"><span class="nav-number">1.6.2.</span> <span class="nav-text">路径优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.7.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL"><span class="nav-number">1.7.1.</span> <span class="nav-text">AVL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树"><span class="nav-number">1.7.2.</span> <span class="nav-text">红黑树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3树"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">2-3树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换与等价性"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">转换与等价性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">1.7.2.3.</span> <span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能总结"><span class="nav-number">1.7.2.4.</span> <span class="nav-text">性能总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表-散列表"><span class="nav-number">1.8.</span> <span class="nav-text">哈希表(散列表)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数设计"><span class="nav-number">1.8.1.</span> <span class="nav-text">哈希函数设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突处理"><span class="nav-number">1.8.2.</span> <span class="nav-text">哈希冲突处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.8.3.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树"><span class="nav-number">1.9.</span> <span class="nav-text">B-树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树-1"><span class="nav-number">1.10.</span> <span class="nav-text">B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续更新"><span class="nav-number">1.11.</span> <span class="nav-text">未完待续更新</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1715,5 +1802,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":75,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
