@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="SpringMVC," />
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
-<meta name="keywords" content="git">
+<meta name="description" content="Spring MVC小结">
+<meta name="keywords" content="SpringMVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 操作小结">
-<meta property="og:url" content="https://laiping816.github.io/2018/06/24/git操作小结/index.html">
+<meta property="og:title" content="SpringMVC">
+<meta property="og:url" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/index.html">
 <meta property="og:site_name" content="Lp&#39;s Blog">
-<meta property="og:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
+<meta property="og:description" content="Spring MVC小结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-30T07:53:33.797Z">
+<meta property="og:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/3.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/拦截器顺序.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/1.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/2.png">
+<meta property="og:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/3.png">
+<meta property="og:updated_time" content="2019-06-16T13:35:59.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 操作小结">
-<meta name="twitter:description" content="git提交代码 可以先pull的情况  1234#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较git pull  #若无冲突，可直接mergegit commit -a -m &quot;message&quot;git push  无法先pull（即存在冲突）方案一：推荐">
+<meta name="twitter:title" content="SpringMVC">
+<meta name="twitter:description" content="Spring MVC小结">
+<meta name="twitter:image" content="https://laiping816.github.io/2019/06/16/框架/SpringMVC/3.png">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://laiping816.github.io/2018/06/24/git操作小结/"/>
+  <link rel="canonical" href="https://laiping816.github.io/2019/06/16/框架/SpringMVC/"/>
 
 
 
 
 
-  <title>Git 操作小结 | Lp's Blog</title>
+  <title>SpringMVC | Lp's Blog</title>
   
 
 
@@ -298,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2018/06/24/git操作小结/">
+    <link itemprop="mainEntityOfPage" href="https://laiping816.github.io/2019/06/16/框架/SpringMVC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L.. P...">
@@ -315,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git 操作小结</h1>
+          <h1 class="post-title" itemprop="name headline">SpringMVC</h1>
         
 
         <div class="post-meta">
@@ -327,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T17:05:30+08:00">
-                2018-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T21:34:00+08:00">
+                2019-06-16
               </time>
             
 
@@ -343,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-30T15:53:33+08:00">
-                2018-10-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-16T21:35:59+08:00">
+                2019-06-16
               </time>
             
           </span>
@@ -363,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
                   </a>
                 </span>
 
@@ -405,50 +411,150 @@
       
 
       
-        <h2 id="git提交代码"><a href="#git提交代码" class="headerlink" title="git提交代码"></a>git提交代码</h2><ol>
-<li>可以先pull的情况</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#该方法适合远端代码和你当前的(包括未add或者已add未commit)进行比较</span></span><br><span class="line">git pull  <span class="comment">#若无冲突，可直接merge</span></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<ol>
-<li>无法先pull（即存在冲突）方案一：推荐</li>
-</ol>
+        <blockquote class="blockquote-center"><p>Spring MVC小结</p></blockquote>
+
+<p><img src="/2019/06/16/框架/SpringMVC/3.png"></p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment">#把当前的所有修改暂存下来，此时status会恢复到最初干净的状态</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">git stash pop <span class="comment">#把暂存区的修改恢复出来，并且冲突的地方会标记出来，待手动修改</span></span><br><span class="line">git stash apply stash@&#123;0&#125; <span class="comment">#上面这样恢复若无冲突和自动删除stash记录，而这个不会</span></span><br><span class="line"></span><br><span class="line">git commit -a -m <span class="string">"message"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<p>附加：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git stash list <span class="comment">#查看暂存的内容列表(包含在哪条分支上的暂存)</span></span><br><span class="line"><span class="comment">#如果使用git stash pop 不加名，则恢复最近一条记录，哪怕是mybranch上的内容也会被恢复到master。(若无冲突，会吧list中记录删除，若冲突则需冲动删除)</span></span><br><span class="line">git stash clear <span class="comment">#清空所有内容</span></span><br><span class="line">git stash drop stash@&#123;0&#125;<span class="comment">#删除第一个队列，不加默认删除编号为0</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>无法先pull（即存在冲突）方案二（缺点：需要提交2次，有时并不想提交）</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m <span class="string">"messgae1"</span></span><br><span class="line">git pull <span class="comment">#此时冲突处会标记出来，手动解决冲突</span></span><br><span class="line">git commit -a -m <span class="string">"messgae2"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --all <span class="comment">#查看所有分支情况，包括本地和远端</span></span><br></pre></td></tr></table></figure>
-<p>无论在主分支，或者其他分支上修改了东西，但是未commit，切换分支时，会<strong>仍然存在</strong>。</p>
-<p>因此，在切换分支的时候，最好commit再切换，或者git stash下来。</p>
-<h3 id="分支新建与合并"><a href="#分支新建与合并" class="headerlink" title="分支新建与合并"></a>分支新建与合并</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.新建分支并切换到该分支上</span></span><br><span class="line">git checkout -b 分支名 </span><br><span class="line"><span class="comment">#等价于下面两条命令</span></span><br><span class="line">git branch 分支名</span><br><span class="line">git checkout 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.合并</span></span><br><span class="line">git checkout master</span><br><span class="line">git merge 分支名 <span class="comment">#fast-forward 无需解决冲突</span></span><br><span class="line">                <span class="comment">#如果当前master和分支的起点不是同个点，可能会有矛盾需解决</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3.删除无用的分支</span></span><br><span class="line">git branch -d 分支名 <span class="comment">#(-D 强制删除，-d无法删除未merge的分支)</span></span><br></pre></td></tr></table></figure>
-<h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><ol>
-<li>分支由本地新建并推送给远程</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git push</span><br><span class="line">git pull <span class="comment">#可缺省后面的仓库名 &lt;远程库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;  </span></span><br><span class="line">                        <span class="comment"># git push是  &lt;本地分支&gt;:&lt;远程分支&gt;  </span></span><br><span class="line"></span><br><span class="line">git checkout mybranch1</span><br><span class="line">git push origin mybranch1</span><br><span class="line">git pull origin mybranch1  <span class="comment">#后面仓库名、分支名不可缺省</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>git pull和push后面有些可以省略，需要<strong>配置</strong>push.default默认行为</p>
-<p>*<strong>建议</strong>分支操作的时候，每次pull和push加上仓库名<origin> &lt;分支名&gt;(本地和远程分支名相同)</origin></p>
-</blockquote>
-<ol>
-<li>分支由远程新建好本地跟踪</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -t(--track) origin/mybranch1 <span class="comment">#克隆远端分支并创建到本地，名与远端同</span></span><br></pre></td></tr></table></figure>
-<p><strong>合并分支与前面相同，git merge</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge mybranch1</span><br><span class="line">git push &lt;origin&gt; &lt;master&gt;</span><br></pre></td></tr></table></figure>
-<p>最后删除无用的分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除远程分支</span></span><br><span class="line">git push origin --delete(-d) mybranch1</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除本地分支</span></span><br><span class="line">git branch -d mybranch1 <span class="comment">#-D强制删除</span></span><br></pre></td></tr></table></figure>
-<h3 id="删除远程分支后本地未同步"><a href="#删除远程分支后本地未同步" class="headerlink" title="删除远程分支后本地未同步"></a>删除远程分支后本地未同步</h3><ul>
-<li>方法1</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch -p 命令</span><br><span class="line"><span class="comment">#命令行解释--prune -p  删除不存在的远程跟踪分支</span></span><br></pre></td></tr></table></figure>
+<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>表现层框架</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>主要由2大块构成</p>
 <ul>
-<li>方法2</li>
+<li><code>web.xml</code>配置DispatcherServlet</li>
+<li><code>DispatcherServlet-servlet.xml</code>中配置<ul>
+<li>处理器映射【根据选定规则找控制器】</li>
+<li>视图解析器</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote show origin <span class="comment">#查看远程分支，还有本地分支与之相对应关系等信息。</span></span><br><span class="line">git remote prune origin <span class="comment">#可以删除远程已经不存在的分支</span></span><br></pre></td></tr></table></figure>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="映射请求"><a href="#映射请求" class="headerlink" title="映射请求"></a>映射请求</h2><ul>
+<li><p>@RequestMapping</p>
+<ul>
+<li>修饰类名：作为url根</li>
+<li>修饰方法名：作为url或者子</li>
+<li>还可自定义访问类型GET、POST等(默认不区分)，及header和参数要求</li>
+</ul>
+</li>
+<li><p>@PathVariable</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以用来映射URL中的占位符到目标方法参数</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/delete/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">dellete</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id) </span>&#123;</span><br><span class="line">  UserDao.delete(id);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"redirect:/user/list.action"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="映射请求参数"><a href="#映射请求参数" class="headerlink" title="映射请求参数"></a>映射请求参数</h2><ul>
+<li><p>@RequestParam</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绑定请求参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">(@RequestParam(<span class="string">"username"</span>)</span> String un,</span></span><br><span class="line"><span class="function">  @<span class="title">RequestParam</span><span class="params">(value=<span class="string">"age"</span>, required=<span class="keyword">false</span>)</span> Integer age,) </span>&#123;</span><br><span class="line">  <span class="comment">//url为/test?username=lp&amp;age=26 (required表示必须有)</span></span><br><span class="line">  可解析出，但这种请求非rest风格</span><br><span class="line">  <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//(重要)</span></span><br><span class="line"><span class="comment">//用的多的是POJO对象映射(@RequestParam("username") </span></span><br><span class="line">Spring MVC会按请求参数名和POJO属性名进行自动匹配</span><br><span class="line">自动为该对象填充值，支持级联属性。如：dept.deptId等</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@RequestHeader</p>
+<p>绑定请求头，用的不多</p>
+</li>
+<li><p>@CookieValue</p>
+<p>映射一个Cookie值</p>
+</li>
+<li><p>Handler方法参数</p>
+<p>即处理请求方法的参数，直接放到method(HttpServletRequest req)使用</p>
+<ul>
+<li><p>ServeletAPI类型参数</p>
+<p>• HttpServletRequest</p>
+<p>• HttpServletResponse</p>
+<p>• HttpSession</p>
+<p>• java.security.Principal</p>
+<p>• Locale</p>
+<p>• InputStream</p>
+<p>• OutputStream</p>
+<p>• Reader</p>
+<p>• Writer</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="处理模型数据"><a href="#处理模型数据" class="headerlink" title="处理模型数据"></a>处理模型数据</h2><ul>
+<li><p>ModelAndView</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//控制器返回该值，则即包含视图，也包含数据 </span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testModelAndView"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">testModelAndView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  String viewName = SUCCESS;</span><br><span class="line">  ModelAndView modelAndView = <span class="keyword">new</span> ModelAndView(viewName);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//添加模型数据到modelAndView</span></span><br><span class="line">  modelAndView.addObject(<span class="string">"time"</span>, <span class="keyword">new</span> Date());</span><br><span class="line">  System.out.println(modelAndView);</span><br><span class="line">  <span class="keyword">return</span> modelAndView; <span class="comment">//只在请求域 requestScope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意点：</p>
+<ol>
+<li>request对象通常用来接收客户端提交到服务端的数据，如：在servlet或者action中可以用request.getParameter()的方法获取获取参数内容；</li>
+<li>requestScope通常是在servlet或者action的服务端中通过request.setAttribute()方法把数据放到request对象中供客户端获取，然后客户端获取的方法就是requestScope.getAttribute()。</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>Map</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testMap"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testMap</span><span class="params">(Map&lt;String, Object&gt; map)</span> </span>&#123;</span><br><span class="line">  System.out.println(map.getClass().getName());</span><br><span class="line">  map.put(<span class="string">"names"</span>, Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>));</span><br><span class="line">  <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;<span class="comment">//同样，无其他声明，只在请求域</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@SessionAttributes修饰类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//value指定键存放，types指定值的类型的键都算</span></span><br><span class="line"><span class="meta">@SessionAttributes</span>(value = &#123;<span class="string">"user"</span>&#125;, types=&#123;String.class&#125;)</span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="meta">@RequestMapping</span>(<span class="string">"/testSessionAttributes"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">testSessionAttributes</span><span class="params">(Map&lt;String, Object&gt; map)</span> </span>&#123;</span><br><span class="line">        map.put(<span class="string">"user"</span>, <span class="string">"lp"</span>);</span><br><span class="line">        <span class="keyword">return</span> SUCCESS;</span><br><span class="line">   &#125;</span><br><span class="line">&#125; <span class="comment">//requestScope和sessionScope都有</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@ModelAttribute</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@ModelAttribute标记的方法, 会在每个目标方法执行之前被SpringMVC调用     </span></span><br><span class="line"><span class="meta">@ModelAttribute</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUser</span><span class="params">(@RequestParam(value=<span class="string">"id"</span>,required=<span class="keyword">false</span>)</span> Integer id, Map&lt;String, Object&gt; map)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(id != <span class="keyword">null</span>)&#123;</span><br><span class="line">    <span class="comment">//模拟从数据库中获取对象</span></span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="number">1</span>, <span class="string">"Tom"</span>, <span class="string">"123456"</span>, <span class="string">"tom@ccc.com"</span>, <span class="number">12</span>);</span><br><span class="line">    System.out.println(<span class="string">"从数据库中获取一个对象: "</span> + user);</span><br><span class="line">    map.put(<span class="string">"abc"</span>, user);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testModelAttribute"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testModelAttribute</span><span class="params">(@ModelAttribute(<span class="string">"abc"</span>)</span> User user)</span>&#123; <span class="comment">//如果不取别名abc，默认不写，则上面的map键为user</span></span><br><span class="line">  System.out.println(<span class="string">"修改: "</span> + user);</span><br><span class="line">  <span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行流程:<ul>
+<li>执行 @ModelAttribute 注解修饰的方法: 从数据库中取出对象, 把对象放入到了 Map 中. 键为: user</li>
+<li>SpringMVC 从 Map 中取出 User 对象, 并把表单的请求参数赋给该 User 对象的对应属性.</li>
+<li>SpringMVC 把上述对象传入目标方法的参数. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="处理JSON"><a href="#处理JSON" class="headerlink" title="处理JSON"></a>处理JSON</h2><p>使用<code>HttpMessageConverter</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mvc:annotation-driven   xml需要配置</span></span><br><span class="line"><span class="meta">@ResponseBody</span> </span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testHttpMessageConverter"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testHttpMessageConverter</span><span class="params">(@RequestBody String body)</span></span>&#123;</span><br><span class="line">  System.out.println(body);							<span class="comment">//提前req信息</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">"helloworld! "</span> + <span class="keyword">new</span> Date();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testJson"</span>) <span class="comment">//直接返json</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Collection&lt;Employee&gt; <span class="title">testJson</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> employeeDao.getAll();</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testConversionServiceConverer"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testConverter</span><span class="params">(@RequestParam(<span class="string">"employee"</span>)</span> Employee employee)</span>&#123;</span><br><span class="line">  System.out.println(<span class="string">"save: "</span> + employee);</span><br><span class="line">  employeeDao.save(employee);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"redirect:/emps"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义拦截器"><a href="#自定义拦截器" class="headerlink" title="自定义拦截器"></a>自定义拦截器</h2><p>必须实现<code>HandlerIntercepter</code>接口</p>
+<ul>
+<li>preHandle()</li>
+<li>postHandle()</li>
+<li>afterCompletion()</li>
+</ul>
+<p>多个拦截器执行顺序如下图：</p>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li><p>3个方法顺序</p>
+</li>
+<li><p>当return false，第一个拦截器pre执行了，还是会运行第一个的after</p>
+</li>
+</ol>
+</blockquote>
+<p><img src="/2019/06/16/框架/SpringMVC/拦截器顺序.png" alt=""></p>
+<h2 id="SpringMVC运行流程"><a href="#SpringMVC运行流程" class="headerlink" title="SpringMVC运行流程"></a>SpringMVC运行流程</h2><p>三张图</p>
+<ul>
+<li>图1</li>
+</ul>
+<p><img src="/2019/06/16/框架/SpringMVC/1.png" alt=""></p>
+<ul>
+<li>图2</li>
+</ul>
+<p><img src="/2019/06/16/框架/SpringMVC/2.png" alt=""></p>
+<ul>
+<li>图3</li>
+</ul>
+<p><img src="/2019/06/16/框架/SpringMVC/3.png" alt=""></p>
+<ul>
+<li>流程描述</li>
+</ul>
+<ol>
+<li><p>用户向服务器发送请求，请求被Spring 前端控制Servlet <code>DispatcherServlet</code>捕获；</p>
+</li>
+<li><p><code>DispatcherServlet</code>对请求URL进行解析，得到请求资源标识符（URI）。然后根据该URI，调用<code>HandlerMapping</code>获得该<code>Handler</code>配置的所有相关的对象（包括<code>Handler</code>对象以及Handler对象对应的拦截器），最后以<code>HandlerExecutionChain</code>对象的形式返回；</p>
+</li>
+<li><p><code>DispatcherServlet</code> 根据获得的<code>Handler</code>，选择一个合适的<code>HandlerAdapter</code>。（<strong>附注</strong>：如果成功获得<code>HandlerAdapter</code>后，此时将开始执行拦截器的<code>preHandler(…)</code>方法）</p>
+</li>
+<li><p>提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller)。 在填充Handler的入参过程中，根据你的配置，Spring将帮你做一些额外的工作</p>
+<ul>
+<li><p><code>HttpMessageConveter</code>： 将请求消息（如Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息</p>
+</li>
+<li><p>数据转换：对请求消息进行数据转换。如String转换成Integer、Double等</p>
+</li>
+<li><p>数据根式化：对请求消息进行数据格式化。 如将字符串转换成格式化数字或格式化日期等</p>
+</li>
+<li><p>数据验证： 验证数据的有效性（长度、格式等），验证结果存储到<code>BindingResult</code>或<code>Error</code>中</p>
+</li>
+</ul>
+</li>
+<li><p>Handler执行完成后，向<code>DispatcherServlet</code>返回一个<code>ModelAndView</code>对象；</p>
+</li>
+<li>根据返回的<code>ModelAndView</code>，选择一个适合的<code>ViewResolver</code>（必须是已经注册到Spring容器中的<code>ViewResolver</code>)返回给<code>DispatcherServlet</code>；</li>
+<li><code>ViewResolver</code> 结合Model和View，来渲染视图</li>
+<li>将渲染结果返回给客户端。</li>
+</ol>
 
       
     </div>
@@ -470,7 +576,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://laiping816.github.io/2018/06/24/git操作小结/" title="Git 操作小结">https://laiping816.github.io/2018/06/24/git操作小结/</a>
+    <a href="https://laiping816.github.io/2019/06/16/框架/SpringMVC/" title="SpringMVC">https://laiping816.github.io/2019/06/16/框架/SpringMVC/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -516,7 +622,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
           
         </div>
       
@@ -529,15 +635,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/21/JVM/JVM学习笔记/" rel="next" title="JVM学习笔记">
+                <i class="fa fa-chevron-left"></i> JVM学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/26/mood/" rel="prev" title="Mood">
-                Mood <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -719,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git提交代码"><span class="nav-number">1.</span> <span class="nav-text">git提交代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git分支"><span class="nav-number">2.</span> <span class="nav-text">git分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支新建与合并"><span class="nav-number">2.1.</span> <span class="nav-text">分支新建与合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程分支"><span class="nav-number">2.2.</span> <span class="nav-text">远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除远程分支后本地未同步"><span class="nav-number">2.3.</span> <span class="nav-text">删除远程分支后本地未同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">3.</span> <span class="nav-text">版本回退</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringMVC"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速入门"><span class="nav-number">1.1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射请求"><span class="nav-number">1.2.</span> <span class="nav-text">映射请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射请求参数"><span class="nav-number">1.3.</span> <span class="nav-text">映射请求参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理模型数据"><span class="nav-number">1.4.</span> <span class="nav-text">处理模型数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理JSON"><span class="nav-number">1.5.</span> <span class="nav-text">处理JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义拦截器"><span class="nav-number">1.6.</span> <span class="nav-text">自定义拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC运行流程"><span class="nav-number">1.7.</span> <span class="nav-text">SpringMVC运行流程</span></a></li></ol></li></ol></div>
             
 
           </div>
