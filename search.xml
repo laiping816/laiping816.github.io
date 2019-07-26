@@ -53,7 +53,7 @@
       <link href="/2019/04/21/JVM/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2019/04/21/JVM/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote class="blockquote-center"><p>Java内存结构、垃圾回收、类加载机制、Java内存模型、线程安全及锁优化</p></blockquote><p><img src="/2019/04/21/JVM/JVM学习笔记/缩略.png" alt=""></p><a id="more"></a><p><strong>详细细节大图地址😜：</strong></p><p><a href="https://image-link.nos-eastchina1.126.net/%E8%AF%A6%E7%BB%86%E5%9B%BE.svg" target="_blank" rel="noopener">https://image-link.nos-eastchina1.126.net/%E8%AF%A6%E7%BB%86%E5%9B%BE.svg</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><blockquote class="blockquote-center"><p>Java内存结构、垃圾回收、类加载机制、Java内存模型、线程安全及锁优化</p></blockquote><br><img src="/2019/04/21/JVM/JVM学习笔记/缩略.png" alt=""></p><a id="more"></a><p>调优经验和总结还需加强❗️</p><p><strong>详细细节大图地址😜：</strong></p><p><a href="https://image-link.nos-eastchina1.126.net/%E8%AF%A6%E7%BB%86%E5%9B%BE.svg" target="_blank" rel="noopener">https://image-link.nos-eastchina1.126.net/%E8%AF%A6%E7%BB%86%E5%9B%BE.svg</a></p>]]></content>
       
       
       <categories>
